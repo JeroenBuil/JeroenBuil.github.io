@@ -54,6 +54,19 @@
       opacity: 0;
     }
   }
+
+  @keyframes color-to-light {
+    0% { color: rgb(253 224 71); } /* yellow-300 */
+    50% { color: rgb(150 150 100); } /* green-500 */
+    100% { color: rgb(30 58 138); } /* blue-900 */
+  }
+
+  @keyframes color-to-dark {
+    0% { color: rgb(30 58 138); } /* blue-900 */
+    50% { color: rgb(34 197 94); } /* green-500 */
+    100% { color: rgb(253 224 71); } /* yellow-300 */
+  }
+
 }
 
 @layer base {
@@ -144,6 +157,14 @@
 @utility meteor {
   @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
   box-shadow: 0 0 10px 5px rgba(255,255,255,0.4);
+}
+
+@utility color-to-light {
+  animation: color-to-light 1s ease-in;
+}
+
+@utility color-to-dark {
+  animation: color-to-dark 1s ease-in;
 }
 
 #root {
