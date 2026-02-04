@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/JeroenBuil.github.io/' : '/',
+  base: '/', // Username.github.io repos serve from root, not a subdirectory
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
