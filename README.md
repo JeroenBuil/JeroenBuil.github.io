@@ -1,5 +1,11 @@
-# React + Vite
+# Portfolio of Jeroen Buil (WIP)
+Work in progress portfolio website hosted on github.
 
+Current feeatures:
+- Theme toggle button
+- Animated background in dark mode (the one and only mode!)
+
+# React + Vite
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
