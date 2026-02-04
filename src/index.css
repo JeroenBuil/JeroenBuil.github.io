@@ -153,7 +153,8 @@
 }
 
 @utility meteor {
-  @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
+  @apply absolute rounded-full;
+  background: linear-gradient(to right, white, white, transparent);
   box-shadow: 0 0 7px 5px rgba(255,255,255,0.2);
   animation: meteor 5s linear;
 }
