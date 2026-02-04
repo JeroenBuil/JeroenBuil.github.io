@@ -1,7 +1,7 @@
 # Portfolio of Jeroen Buil (WIP)
 Work in progress portfolio website hosted on github.
 
-Current feeatures:
+Current features:
 - Theme toggle button
 - Animated background in dark mode (the one and only mode!)
 
