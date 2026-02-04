@@ -1,6 +1,6 @@
 import {ThemeToggle} from "@/components/ThemeToggle";
 import {StarBackground} from "@/components/StarBackground";
-
+import { Title } from "@/components/Title";
 export const Home = () => {
     return <div className="min-h-dvh bg-background text-foreground overflow-x-hidden"> {/*className="min-h-screen"*/}
 
@@ -9,6 +9,9 @@ export const Home = () => {
             
             {/*Background Effects */}
             <StarBackground />
+            
+            {/*Title */}
+            <Title />
             
             {/*Navbar */}
 
