@@ -175,4 +175,8 @@
   background-color: hsl(var(--background));
 }
 
+.text-foreground {
+  color: hsl(var(--foreground));
+}
+
 /* Remove from Tailwind layers, use only as a custom class */
