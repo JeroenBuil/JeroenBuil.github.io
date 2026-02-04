@@ -50,7 +50,6 @@ export const StarBackround = () => {
             newMeteors.push({
                 id: meteorIdCounter++, // unique id => necessary to trigger a new animation for each meteor
                 size: Math.random() * 1 + 0.5, //generate random size between 1 and 1.5
-                size: Math.random() * 1 + 0.5, //generate random size between 1 and 1.5
                 x: Math.random() * 100, // randomize position
                 y: Math.random() * 40, // only show meteors in the top of the screen
                 delay: Math.random() * 4, // reduced delay to 0-2s for quicker start
