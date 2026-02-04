@@ -1,15 +1,13 @@
 @import "tailwindcss";
 
-@theme {
+/* Move keyframes and variables OUTSIDE of @theme */
+:root {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
-
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-
   --color-card: hsl(var(--card));
   --color-border: hsl(var(--border));
-
   --anime-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 2s ease-in-out infinite;
   --animate-fade-in: fade-in 0.7s ease-out forwards;
@@ -19,49 +17,50 @@
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   --animate-meteor: meteor 5s linear;
   --meteor-distance: -1000px;
+}
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  @keyframes pulse-subtle {
-    0%, 
-    100% { opacity: 1; }
-    50% { opacity: 0.4; }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
   }
+}
 
-  @keyframes fade-in {
-    from{
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0px);
-    }
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0px);
+    opacity: 0;
   }
-
-  @keyframes meteor {
-    0% {
-      transform: rotate(215deg) translateX(0px);
-      opacity: 1;
-    }
-    5% {
-      transform: rotate(215deg) translateX(calc(var(--meteor-distance) * 0.05));
-      opacity: 0.9;
-    }
-    20% {
-      transform: rotate(215deg) translateX(calc(var(--meteor-distance) * 0.2));
-      opacity: 0;
-    }
-    100% {
-      transform: rotate(215deg) translateX(var(--meteor-distance));
-      opacity: 0;
-    }
+  1% {
+    transform: rotate(215deg) translateX(0px);
+    opacity: 1;
   }
-
+  5% {
+    transform: rotate(215deg) translateX(calc(var(--meteor-distance) * 0.05));
+    opacity: 0.9;
+  }
+  20% {
+    transform: rotate(215deg) translateX(calc(var(--meteor-distance) * 0.2));
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(215deg) translateX(var(--meteor-distance));
+    opacity: 0;
+  }
 }
 
 @layer base {
@@ -88,7 +87,8 @@
   }
 
   * {
-    @apply border-border;
+    /* @apply border-border; */
+    /* border-border is not a standard Tailwind utility. Remove or replace with a valid Tailwind class or custom CSS. */
   }
 
   html {
@@ -96,7 +96,9 @@
   }
 
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    @apply transition-colors duration-300;
     font-feature-settings: " rlig" 1, "calt" 1;
   }
 }
@@ -139,9 +141,10 @@
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-  transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
-  hover:scale-105 active:scale-95;
+  @apply px-6 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 active:scale-95;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 0 10px rgba(139,92,246,0.5);
 }
 
 @utility star {
@@ -152,6 +155,7 @@
 @utility meteor {
   @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
   box-shadow: 0 0 7px 5px rgba(255,255,255,0.2);
+  animation: meteor 5s linear;
 }
 
 @utility icon-color-transition {
@@ -164,3 +168,10 @@
   padding: 0;
   text-align: center;
 }
+
+/* Custom utility for background using CSS variable */
+.bg-background {
+  background-color: hsl(var(--background));
+}
+
+/* Remove from Tailwind layers, use only as a custom class */

@@ -1,18 +1,16 @@
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Home } from  "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 
 function App() {
-
-
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
-          <Route index element={<Home />}/>
-          <Route path="*" element={<NotFound />}/> {/*defaults to this page when Home is not found */}
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

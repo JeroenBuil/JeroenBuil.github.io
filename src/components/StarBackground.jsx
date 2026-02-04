@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const StarBackround = () => {
+export const StarBackground = () => {
     const [stars, setStars] = useState([]); // stars have id, size, x, y, opacity
     const [meteors, setMeteors] = useState([]); // meteors have id, size, x, y, delay, animationDuration
     const numberOfMeteors = 4;
@@ -47,15 +47,15 @@ export const StarBackround = () => {
         // console.log("Window width:", window.innerWidth);
 
         for (let i = 0; i < numberOfMeteors; i++) {
+            const size = Math.random() * 0.5 + 0.75; //generate random size between 0.75 and 1.5
             newMeteors.push({
                 id: meteorIdCounter++, // unique id => necessary to trigger a new animation for each meteor
-                size: Math.random() * 1 + 0.5, //generate random size between 1 and 1.5
+                size: size,
                 x: Math.random() * 100, // randomize position
                 y: Math.random() * 40, // only show meteors in the top of the screen
                 delay: Math.random() * 4, // reduced delay to 0-2s for quicker start
-                animationDuration: 4.5 + Math.random() * 3,
-                // distance: -((Math.random() *2* window.innerWidth)+2000), // adjust meteor travel based on screen width => don't like it...
-                distance: -(2000 + Math.random() * 1000),
+                animationDuration: size * 4 + Math.random() * 2, // duration scales with size
+                distance: size*-(2000 + Math.random() * 1000),
             });
             // console.log(`Meteor ${i} distance: ${newMeteors[i].distance}`);
             console.log(`Meteor ${i} duration: ${newMeteors[i].animationDuration}`);
@@ -85,9 +85,8 @@ export const StarBackround = () => {
                     top: meteor.y + '%',
                     animation: `meteor ${meteor.animationDuration}s linear`,
                     animationDelay: meteor.delay + 's',
+                    animationFillMode: 'both',
                     '--meteor-distance': meteor.distance + 'px',
-                    opacity: 0, // start invisible, will fade in with animation
-
                 }}/> //'meteor' class defined in index.css applies all the effects defined there
             ))}
         </div>
