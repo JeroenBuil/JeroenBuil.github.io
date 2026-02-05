@@ -28,10 +28,13 @@ export const NavBar = () => {
             isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs": "py-5"
         )}>
             <div className="container flex items-center justify-between">
-                <a className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold flex items-center relative z-10 gap-2 md:gap-3 mt-2 md:mt-0">
-                    <span className="text-glow text-foreground">Jeroen Buil</span> 
-                    <span className="text-primary">Portfolio</span>
-                </a>
+                <div className="flex flex-col">
+                    <a className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold flex items-center relative z-10 gap-2 md:gap-3 mt-2 md:mt-0">
+                        <span className="text-glow text-foreground">Jeroen Buil</span> 
+                        <span className="text-primary">Portfolio</span>
+                    </a>
+                    <div className="text-sm text-muted-foreground mt-1">WORK IN PROGRESS</div>
+                </div>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-8">
