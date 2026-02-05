@@ -28,10 +28,19 @@ export const NavBar = () => {
             <div className="container flex items-center justify-between">
                 <a className="text-5xl font-bold text-primary flex items-centered">
                     <span className="relative z-10">
-                        Test:
-                        <span className="text-glow" > Glow </span> 
+                        <span className="text-glow" > Jeroen </span> 
+                        Portfolio
                     </span>
                 </a>
+
+                {/* Desktop Menu */}
+                <div>
+                    {navItems.map((item, key) => {
+                        <a key={key} href={item.href}>
+                            {item.name}
+                        </a>
+                    })}
+                </div>
             </div>
         </nav>
     );
