@@ -3,6 +3,7 @@ import {StarBackground} from "@/components/StarBackground";
 import { Title } from "@/components/Title";
 import { NavBar } from "@/components/NavBar";
 import { HomeSection } from "@/components/HomeSection";
+import { AboutSection } from "@/components/AboutSection";
 
 export const Home = () => {
     return <div className="min-h-dvh bg-background text-foreground overflow-x-hidden"> {/*className="min-h-screen"*/}
@@ -22,11 +23,9 @@ export const Home = () => {
             {/* Main content */}
             <main>
                 <HomeSection />
+                <AboutSection />
             </main>
-            
-            
-
-            {/*Main Content */}
+           
 
             {/*Footer */}
         </div>;

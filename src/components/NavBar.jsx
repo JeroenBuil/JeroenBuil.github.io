@@ -30,8 +30,8 @@ export const NavBar = () => {
             <div className="container flex items-center justify-between">
                 <div className="flex flex-col">
                     <a className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold flex items-center relative z-10 gap-2 md:gap-3 mt-2 md:mt-0">
-                        <span className="text-glow text-foreground">Jeroen Buil</span> 
-                        <span className="text-primary">Portfolio</span>
+                        <span className="text-foreground">Jeroen Buil</span> 
+                        <span className="text-primary text-glow ">Portfolio</span>
                     </a>
                     <div className="text-sm text-muted-foreground mt-1">WORK IN PROGRESS</div>
                 </div>

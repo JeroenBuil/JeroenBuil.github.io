@@ -21,15 +21,13 @@ export const HomeSection = () => {
                     <div className={cn("opacity-0 animate-fade-in-delay-3",
                         "text-md md:text-lg text-muted-foreground max-w-5xl mx-auto"
                     )}>
-                        <p className="mb-1">11+ years building AI & Engineering solutions across:</p>
-                        <ul className="list-disc space-y-1 mb-4 inline-block text-left pl-5">
+                        <p className="mb-2">11+ years of AI engineering.</p>
+                        <p className="mb-2">Building real-world solutions across:</p>
+                        <ul className="list-disc space-y-1 mb-1 inline-block text-left pl-5">
                             <li>Biotech</li>
                             <li>Medtech</li>
                             <li>Finance</li>
                         </ul>
-                        {/* <p className="mb-2">Proven track record in both industry and research.</p> */}
-                        <p className="mb-2">Driven to make a positive impact with my work.</p>
-                        <p>When not coding, you'll find me on the water or tinkering with electronics.</p>
                     </div>
 
                     {/* Add ' View my Work' Button */}
