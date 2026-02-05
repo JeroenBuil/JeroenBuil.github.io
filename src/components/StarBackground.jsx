@@ -52,13 +52,13 @@ export const StarBackground = () => {
                 id: meteorIdCounter++, // unique id => necessary to trigger a new animation for each meteor
                 size: size,
                 x: Math.random() * 100, // randomize position
-                y: Math.random() * 40, // only show meteors in the top of the screen
+                y: Math.random() * 60, // only show meteors in the top of the screen
                 delay: Math.random() * 4, // reduced delay to 0-2s for quicker start
                 animationDuration: size * 4 + Math.random() * 2, // duration scales with size
                 distance: size*-(2000 + Math.random() * 1000),
             });
             // console.log(`Meteor ${i} distance: ${newMeteors[i].distance}`);
-            console.log(`Meteor ${i} duration: ${newMeteors[i].animationDuration}`);
+            // console.log(`Meteor ${i} duration: ${newMeteors[i].animationDuration}`);
         };
         setMeteors(prev => [...prev, ...newMeteors].slice(-numberOfMeteors)); // keep only the last N meteors to prevent memory leak
     };
@@ -66,14 +66,14 @@ export const StarBackground = () => {
     return (
         <div className='fixed inset-0 overflow-hidden pointer-events-none z-0'>
             {stars.map((star) => (
-                <div key={star.id} className='star animate-pulse-subtle'
+                <div key={star.id} className='star'
                 style={{
                     width: star.size + 'px',
                     height: star.size + 'px',
                     left: star.x + '%',
                     top: star.y + '%',
                     opacity: star.opacity,
-                    animationDuration: star.animationDuration + 's',
+                    animation: `pulse-subtle ${star.animationDuration}s ease-in-out infinite`,
                 }}/> //'star' class defined in index.css applies all the effects defined there
             ))}
             {meteors.map((meteor) => (
