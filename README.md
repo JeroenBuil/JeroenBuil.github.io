@@ -4,6 +4,13 @@ Work in progress portfolio website hosted on github.
 Current features:
 - Theme toggle button
 - Animated background in dark mode (the one and only mode!)
+- Welcome 'Home' Section
+
+To-Do:
+- About section
+- Projects section
+- Contact section
+- Link Menu buttons to sections
 
 # React + Vite
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
