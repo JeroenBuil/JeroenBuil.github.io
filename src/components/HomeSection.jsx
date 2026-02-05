@@ -21,7 +21,7 @@ export const HomeSection = () => {
                     <div className={cn("opacity-0 animate-fade-in-delay-3",
                         "text-md md:text-lg text-muted-foreground max-w-5xl mx-auto"
                     )}>
-                        <p className="mb-1">10+ years building AI & Engineer solutions across:</p>
+                        <p className="mb-1">11+ years building AI & Engineering solutions across:</p>
                         <ul className="list-disc space-y-1 mb-4 inline-block text-left pl-5">
                             <li>Biotech</li>
                             <li>Medtech</li>
