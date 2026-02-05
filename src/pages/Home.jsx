@@ -15,8 +15,8 @@ export const Home = () => {
             {/*Navbar */}
             <NavBar />
             
-            {/*Title */}
-            <Title />
+            {/*test Title */}
+            {/* <Title /> */}
             
             
 
