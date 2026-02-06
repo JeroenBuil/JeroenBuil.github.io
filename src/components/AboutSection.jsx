@@ -1,6 +1,6 @@
 
 import { cn } from "@/lib/utils";
-import { Code, User, Briefcase } from "lucide-react";
+import { Code, Users, Workflow } from "lucide-react";
 
 
 export const AboutSection = () => {
@@ -24,7 +24,7 @@ export const AboutSection = () => {
                         <p>
                             I bring 11+ years of experience creating AI and engineering solutions that bridge
                             industry and research. I focus on practical, production-ready work that helps teams
-                            move faster and deliver real outcomes.
+                            move faster and deliver real outcomes. 
                         </p>
                         <p className="mb-2">Fields I’ve worked in:</p>
                         <ul className="list-disc list-inside space-y-1">
@@ -37,7 +37,8 @@ export const AboutSection = () => {
                             scientific discovery, or building reliable (data-driven) systems in complex environments.
                         </p>
                         <p>
-                            Outside of work, I’m usually on the water or tinkering with electronics. I'm also a passionate photographer/videographer.
+                            Outside of work, I’m usually on the water or tinkering with electronics.<br></br>
+                            I'm also a passionate photographer/videographer.
                         </p>
 
                         {/* Call to Action Buttons */}
@@ -65,9 +66,23 @@ export const AboutSection = () => {
                                 </div>
                                 <div className="text-left">
                                     <h4 className="font-semibold text-lg">AI / ML</h4>
-                                    <p>
+                                    <p className="text-muted-foreground">
                                         Extensive experience in building and deploying AI/ML solutions in real-world settings,
                                         with a focus on robustness, scalability, and maintainability.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="gradient-border p-6 card-hover">
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 rounded-full bg-primary/10">
+                                    <Users className="h-6 w-6 text-primary" />
+                                </div>
+                                <div className="text-left">
+                                    <h4 className="font-semibold text-lg">Leadership</h4>
+                                    <p className="text-muted-foreground">
+                                        Cross-functional experience gives me deep insight into what every team member needs to succeed. 
+                                        We deliver results and still like each other afterwards. I am proud that colleagues call me for advice.
                                     </p>
                                 </div>
                             </div>
@@ -76,18 +91,19 @@ export const AboutSection = () => {
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-start gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
-                                    <User className="h-6 w-6 text-primary" />
+                                    <Workflow className="h-6 w-6 text-primary" />
+                                </div>
+                                <div className="text-left">
+                                    <h4 className="font-semibold text-lg">Bridge Builder</h4>
+                                    <p className="text-muted-foreground">
+                                        I bridge the gap between business and technical teams by speaking both languages fluently: 
+                                        I can translate complex technical concepts into understandable terms by indentifying which technical details are important for the stakeholders.
+                                        And I can translate business concepts into technical requirements.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="gradient-border p-6 card-hover">
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 rounded-full bg-primary/10">
-                                    <Briefcase className="h-6 w-6 text-primary" />
-                                </div>
-                            </div>
-                        </div>
                         
                     </div>
                 </div>
