@@ -48,7 +48,7 @@ export const AboutSection = () => {
                             </a>
                             {/* Download CV button */}
                             <a 
-                                href="/cv.pdf" 
+                                href="/CV - Jeroen Buil.pdf" 
                                 download="CV - Jeroen Buil.pdf"
                                 className="cosmic-button-inverted"
                             >
