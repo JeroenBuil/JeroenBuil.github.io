@@ -3,6 +3,14 @@ import { cn } from "@/lib/utils";
 import { ArrowDown } from "lucide-react";
 
 export const HomeSection = () => {
+    const handleScrollToProjects = (event) => {
+        event.preventDefault();
+        const target = document.getElementById("projects");
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+
     return (
         <section 
             id="home"
@@ -32,7 +40,7 @@ export const HomeSection = () => {
 
                     {/* Add ' View my Work' Button */}
                     <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-                        <a  href="#projects" className="cosmic-button">
+                        <a  href="#projects" className="cosmic-button" onClick={handleScrollToProjects}>
                             View my Work
                         </a>
                     </div>
