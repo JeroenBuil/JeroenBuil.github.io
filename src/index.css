@@ -147,6 +147,10 @@
   box-shadow: 0 10px 15px rgb(0 0 0 / 10%);
 }
 
+.dark .card-hover:hover {
+  box-shadow: 0 10px 15px rgb(255 255 255 / 10%);
+}
+
 .gradient-border {
   position: relative;
   border-radius: 0.375rem;  
