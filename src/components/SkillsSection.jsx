@@ -2,86 +2,80 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skillList = [
-  // Coding languages
-  { name: "Python", level: 100,  category: "Coding Languages" },
-  { name: "MATLAB", level: 100,  category: "Coding Languages" },
-  { name: "R", level: 85,  category: "Coding Languages" },
-  { name: "SQL", level: 90,  category: "Coding Languages" },
-  { name: "Java", level: 30,  category: "Coding Languages" },
-  { name: "JavaScript", level: 80,  category: "Coding Languages" },
-  { name: "C++", level: 70,  category: "Coding Languages" },
-  { name: "React", level: 60,  category: "Coding Languages" },
-  { name: "HTML/CSS", level: 50,  category: "Coding Languages" },
+  // Programming Languages
+  { name: "Python", level: 100,  category: "Programming Languages" },
+  { name: "MATLAB", level: 100,  category: "Programming Languages" },
+  { name: "SQL", level: 90,  category: "Programming Languages" },
+  { name: "R", level: 80,  category: "Programming Languages" },
+  { name: "Java", level: 30,  category: "Programming Languages" },
+  { name: "JavaScript", level: 80,  category: "Programming Languages" },
+  { name: "C++", level: 70,  category: "Programming Languages" },
+  { name: "React", level: 60,  category: "Programming Languages" },
+  { name: "HTML/CSS", level: 50,  category: "Programming Languages" },
 
-  // Data visualization
-  { name: "Matplotlib", level: 100,  category: "Data Visualization" },
-  { name: "Seaborn", level: 100,  category: "Data Visualization" },
-  { name: "Plotly", level: 100,  category: "Data Visualization" },
-  { name: "Power BI", level: 70,  category: "Data Visualization" },
+  // Machine Learning & AI
+  { name: "Scikit-learn", level: 100,  category: "Machine Learning & AI" },
+  { name: "PyTorch", level: 95,  category: "Machine Learning & AI" },
+  { name: "TensorFlow", level: 90,  category: "Machine Learning & AI" },
+  { name: "Keras", level: 60,  category: "Machine Learning & AI" },
+  { name: "Pandas", level: 100,  category: "Machine Learning & AI" },
+  { name: "NumPy", level: 100,  category: "Machine Learning & AI" },
+  { name: "NLP", level: 70,  category: "Machine Learning & AI" },
+  { name: "Computer Vision", level: 50,  category: "Machine Learning & AI" },
+  { name: "Time-Series Processing", level: 95,  category: "Machine Learning & AI" },
 
-  // AI / Machine learning
-  { name: "Scikit-learn", level: 100,  category: "AI / ML" },
-  { name: "PyTorch", level: 100,  category: "AI / ML" },
-  { name: "TensorFlow", level: 90,  category: "AI / ML" },
-  { name: "Keras", level: 60,  category: "AI / ML" },
-  { name: "Pandas", level: 100,  category: "AI / ML" },
-  { name: "NumPy", level: 100,  category: "AI / ML" },
-  { name: "NLP", level: 70,  category: "AI / ML" },
-  { name: "Computer Vision", level: 50,  category: "AI / ML" },
-  { name: "Time-Series Processing", level: 85,  category: "AI / ML" },
+  // Data Engineering & Cloud
+  { name: "ETL Pipelines", level: 100,  category: "Data Engineering & Cloud" },
+  { name: "Airflow", level: 60,  category: "Data Engineering & Cloud" },
+  { name: "Databricks", level: 90,  category: "Data Engineering & Cloud" },
+  { name: "PySpark", level: 75,  category: "Data Engineering & Cloud" },
+  { name: "Azure", level: 80,  category: "Data Engineering & Cloud" },
+  { name: "AWS", level: 60,  category: "Data Engineering & Cloud" },
 
-  // Data engineering & ETL
-  { name: "ETL Pipelines", level: 100,  category: "Data Engineering" },
-  { name: "Airflow", level: 60,  category: "Data Engineering" },
-  { name: "Databricks", level: 90,  category: "Data Engineering" },
-  { name: "PySpark", level: 75,  category: "Data Engineering" },
+  // Visualization & Analytics
+  { name: "Matplotlib", level: 100,  category: "Visualization & Analytics" },
+  { name: "Seaborn", level: 100,  category: "Visualization & Analytics" },
+  { name: "Plotly", level: 100,  category: "Visualization & Analytics" },
+  { name: "Power BI", level: 70,  category: "Visualization & Analytics" },
+  { name: "SQL Server Management Studio", level: 80,  category: "Visualization & Analytics" },
+  { name: "Azure Data Studio", level: 75,  category: "Visualization & Analytics" },
 
-  // Cloud services
-  { name: "Azure", level: 80,  category: "Cloud Services" },
-  { name: "AWS", level: 60,  category: "Cloud Services" },
+  // DevOps & Infrastructure
+  { name: "Git", level: 100,  category: "DevOps & Infrastructure" },
+  { name: "CI/CD", level: 100,  category: "DevOps & Infrastructure" },
+  { name: "API Integration", level: 80,  category: "DevOps & Infrastructure" },
+  { name: "Docker", level: 60,  category: "DevOps & Infrastructure" },
+  { name: "Linux", level: 90,  category: "DevOps & Infrastructure" },
+  { name: "Windows", level: 80,  category: "DevOps & Infrastructure" },
+  { name: "macOS", level: 60,  category: "DevOps & Infrastructure" },
 
-  // Data modeling tools
-  { name: "SQL Server Management Studio", level: 80,  category: "Data Modeling" },
-  { name: "Azure Data Studio", level: 75,  category: "Data Modeling" },
-  { name: "MS Visio", level: 100,  category: "Data Modeling" },
+  // Biomedical Engineering
+  { name: "MNE", level: 80,  category: "Biomedical Engineering" },
+  { name: "EEGLAB", level: 70,  category: "Biomedical Engineering" },
+  { name: "GDPR", level: 85,  category: "Biomedical Engineering" },
+  { name: "ISO 13485", level: 65,  category: "Biomedical Engineering" },
+  { name: "IEC 62304", level: 70,  category: "Biomedical Engineering" },
+  { name: "F.A.I.R.", level: 75,  category: "Biomedical Engineering" },
 
-  // DevOps & integration
-  { name: "Git", level: 100,  category: "DevOps & Integration" },
-  { name: "CI/CD", level: 100,  category: "DevOps & Integration" },
-  { name: "API Integration", level: 80,  category: "DevOps & Integration" },
-  { name: "Docker", level: 60,  category: "DevOps & Integration" },
-
-  // Neural data processing
-  { name: "MNE", level: 80,  category: "Neural Data Processing" },
-  { name: "EEGLAB", level: 70,  category: "Neural Data Processing" },
-
-  // CAD & PCB design
-  { name: "Fusion 360", level: 90,  category: "CAD & PCB" },
-  { name: "SolidWorks", level: 80,  category: "CAD & PCB" },
-  { name: "KiCAD", level: 60,  category: "CAD & PCB" },
-  { name: "3D Printing", level: 100,  category: "CAD & PCB" },
-
-  // Platforms & operating systems
-  { name: "Linux", level: 90,  category: "Platforms" },
-  { name: "Windows", level: 80,  category: "Platforms" },
-  { name: "Arduino", level: 70,  category: "Platforms" },
-  { name: "macOS", level: 60,  category: "Platforms" },
-
-  // Regulatory & Compliance
-  { name: "GDPR", level: 85,  category: "Regulatory & Compliance" },
-  { name: "ISO 13485", level: 65,  category: "Regulatory & Compliance" },
-  { name: "IEC 62304", level: 70,  category: "Regulatory & Compliance" },
-  { name: "F.A.I.R.", level: 75,  category: "Regulatory & Compliance" },
+  // Hardware & Design
+  { name: "Fusion 360", level: 90,  category: "Hardware & Design" },
+  { name: "SolidWorks", level: 80,  category: "Hardware & Design" },
+  { name: "KiCAD", level: 60,  category: "Hardware & Design" },
+  { name: "3D Printing", level: 100,  category: "Hardware & Design" },
+  { name: "Arduino", level: 75,  category: "Hardware & Design" },
+  { name: "Raspberry Pi", level: 60,  category: "Hardware & Design" },
 ];
 
-const categories = [...new Set(skillList.map(skill => skill.category)), "All"];
+const categories = ["All", ...new Set(skillList.map(skill => skill.category))];
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("Coding Languages");
+  const [activeCategory, setActiveCategory] = useState("Programming Languages");
 
-  const filteredSkills = activeCategory === "All" 
-    ? skillList 
-    : skillList.filter(skill => skill.category === activeCategory);
+  const filteredSkills = (
+    activeCategory === "All" 
+      ? skillList 
+      : skillList.filter((skill) => skill.category === activeCategory)
+  );
 
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary-30">
@@ -91,7 +85,7 @@ export const SkillsSection = () => {
           My <span className="text-primary">Skills</span> 
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
           {/* Category Filter Buttons */}
           {categories.map((category, key) => (
             <button
@@ -109,16 +103,16 @@ export const SkillsSection = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
           {/* Skill Card for each skill*/}
           {filteredSkills.map((skill, key) => (
             <div 
               key={key}
-              className=" bg-card p-6 rounded-lg shadows-xs card-hover"
+              className="bg-card p-3 rounded-lg shadows-xs card-hover"
             >
               {/* Skill Name */}
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
+              <div className="text-left mb-3">
+                <h3 className="font-semibold text-xs sm:text-sm md:text-base">{skill.name}</h3>
               </div>
               {/* Skill Level Bar */}
               <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
