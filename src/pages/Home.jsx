@@ -1,9 +1,9 @@
 import {ThemeToggle} from "@/components/ThemeToggle";
 import {StarBackground} from "@/components/StarBackground";
-import { Title } from "@/components/Title";
 import { NavBar } from "@/components/NavBar";
 import { HomeSection } from "@/components/HomeSection";
 import { AboutSection } from "@/components/AboutSection";
+import { SkillsSection } from "../components/SkillsSection";
 
 export const Home = () => {
     return <div className="min-h-dvh bg-background text-foreground overflow-x-hidden"> {/*className="min-h-screen"*/}
@@ -17,13 +17,11 @@ export const Home = () => {
             {/*Navbar */}
             <NavBar />
             
-            {/*test Title */}
-            {/* <Title /> */}
-
             {/* Main content */}
             <main>
                 <HomeSection />
                 <AboutSection />
+                <SkillsSection />
             </main>
            
 
