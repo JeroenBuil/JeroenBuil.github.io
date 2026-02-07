@@ -225,6 +225,14 @@
   background-color: hsl(var(--background));
 }
 
+.bg-primary {
+  background-color: hsl(var(--primary));
+}
+
+.bg-card {
+  background-color: hsl(var(--card));
+}
+
 .text-foreground {
   color: hsl(var(--foreground));
 }
@@ -268,4 +276,8 @@
 /* Mobile: active state instead of hover */
   .hover-text-primary:active {
     color: hsl(var(--primary));
+}
+
+.animate-skill-bar {
+  transition: grow 1.5s ease-out;
 }

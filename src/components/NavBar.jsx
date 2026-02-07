@@ -14,9 +14,19 @@ export const NavBar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const handleNavClick = (event, href) => {
+        event.preventDefault();
+        const targetId = href.replace("#", "");
+        const target = document.getElementById(targetId);
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        setIsMenuOpen(false);
+    };
+
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.screenY > 10)
+            setIsScrolled(window.scrollY > 10)
         };
         window.addEventListener('scroll', handleScroll);
 
@@ -43,6 +53,7 @@ export const NavBar = () => {
                             key={key}
                             href={item.href}
                             className="text-foreground/80 hover-text-primary"
+                            onClick={(event) => handleNavClick(event, item.href)}
                         >
                             {item.name}
                         </a>
@@ -66,7 +77,7 @@ export const NavBar = () => {
                                 key={key}
                                 href={item.href}
                                 className="block text-foreground/80 hover-text-primary"
-                                onClick={() => setIsMenuOpen(false)}
+                                onClick={(event) => handleNavClick(event, item.href)}
                             >
                                 {item.name}
                             </a>
