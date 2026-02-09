@@ -2,12 +2,12 @@
 import { cn } from "@/lib/utils";
 import { ArrowDown } from "lucide-react";
 
-export const HomeSection = () => {
+export const Home = () => {
     const handleScrollToProjects = (event) => {
         event.preventDefault();
         const target = document.getElementById("projects");
         if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            target.scrollIntoView({ block: "start" });
         }
     };
 

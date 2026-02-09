@@ -19,7 +19,7 @@ export const NavBar = () => {
         const targetId = href.replace("#", "");
         const target = document.getElementById(targetId);
         if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            target.scrollIntoView({ block: "start" });
         }
         setIsMenuOpen(false);
     };
@@ -43,7 +43,7 @@ export const NavBar = () => {
                         <span className="text-foreground">Jeroen Buil</span>
                         <span className="text-primary text-glow">Portfolio</span>
                     </a>
-                    <div className="text-sm text-muted-foreground mt-1">WORK IN PROGRESS</div>
+                    {/* <div className="text-sm text-muted-foreground mt-1">WORK IN PROGRESS</div> */}
                 </div>
 
                 {/* Desktop Menu */}

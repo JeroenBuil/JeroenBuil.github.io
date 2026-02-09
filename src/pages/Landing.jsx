@@ -1,14 +1,14 @@
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { StarBackground } from "@/components/StarBackground";
 import { NavBar } from "@/components/NavBar";
-import { HomeSection } from "@/components/HomeSection";
-import { AboutSection } from "@/components/AboutSection";
-import { SkillsSection } from "../components/SkillsSection";
-import { ProjectsSection } from "@/components/ProjectsSection";
-import { ContactSection } from "@/components/ContactSection";
+import { Home } from "@/components/HomeSection";
+import { About } from "@/components/AboutSection";
+import { Skills } from "../components/SkillsSection";
+import { Projects } from "@/components/ProjectsSection";
+import { Contact } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 
-export const Home = () => {
+export const HomePage = () => {
     return <div className="min-h-dvh bg-background text-foreground overflow-x-hidden"> {/*className="min-h-screen"*/}
 
             {/*Theme Toggle */}
@@ -22,11 +22,11 @@ export const Home = () => {
             
             {/* Main content */}
             <main>
-                <HomeSection />
-                <AboutSection />
-                <SkillsSection />
-                <ProjectsSection />
-                <ContactSection />
+                <Home />
+                <About />
+                <Skills />
+                <Projects />
+                <Contact />
             </main>
            
             {/*Footer */}

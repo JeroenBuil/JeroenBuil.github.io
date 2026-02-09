@@ -68,7 +68,7 @@ const skillList = [
 
 const categories = ["All", ...new Set(skillList.map(skill => skill.category))];
 
-export const SkillsSection = () => {
+export const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("Programming Languages");
 
   const filteredSkills = (

@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { Mail, Linkedin, Github, MapPin } from "lucide-react";
 
 const contactList = [
-  {
-    id: 'email',
-    label: 'Email',
-    icon: 'mail'
-  },
+  // {
+  //   id: 'email',
+  //   label: 'Email',
+  //   icon: 'mail'
+  // },
   {
     id: 'linkedin',
     label: 'LinkedIn',
@@ -25,16 +25,16 @@ const contactList = [
   }
 ];
 
-export const ContactSection = () => {
-  const [email, setEmail] = useState('');
+export const Contact = () => {
+  // const [email, setEmail] = useState('');
   const [linkedin, setLinkedin] = useState('');
   const [github, setGithub] = useState('');
   
   useEffect(() => {
     // Construct contact info dynamically to avoid bot scraping
-    const user = 'jeroen.buil';
-    const domain = 'proton.me';
-    setEmail(`${user}@${domain}`);
+    // const user = 'jeroen.buil';
+    // const domain = 'proton.me';
+    // setEmail(`${user}@${domain}`);
     
     const linkedinUser = 'jeroen-buil';
     setLinkedin(`https://linkedin.com/in/${linkedinUser}`);
@@ -45,24 +45,24 @@ export const ContactSection = () => {
 
   const getContactInfo = (id) => {
     switch(id) {
-      case 'email':
-        return {
-          href: email ? `mailto:${email}` : null,
-          text: email,
-          isLoaded: !!email,
-          isExternal: true
-        };
+      // case 'email':
+      //   return {
+      //     href: email ? `mailto:${email}` : null,
+      //     text: email,
+      //     isLoaded: !!email,
+      //     isExternal: true
+      //   };
       case 'linkedin':
         return {
           href: linkedin,
-          text: 'jeroen-buil',
+          text: linkedin,
           isLoaded: !!linkedin,
           isExternal: true
         };
       case 'github':
         return {
           href: github,
-          text: 'JeroenBuil',
+          text: github,
           isLoaded: !!github,
           isExternal: true
         };
@@ -104,7 +104,7 @@ export const ContactSection = () => {
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           I’m always open to new opportunities, collaborations, or just a chat about AI, engineering, or anything in between. 
-          Feel free to reach out via email or connect with me on LinkedIn. Also check out my Github!
+          Feel free to reach out or connect with me on LinkedIn. Also check out my Github!
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-8">

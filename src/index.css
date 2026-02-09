@@ -64,19 +64,19 @@
 @layer base {
   :root {
     /* Colors */
-    --background: hsl(210deg 15% 95%);
-    --foreground: hsl(222deg 47% 11%);
-    --muted-foreground: hsl(215deg 16% 30%);
-    --primary: hsl(155deg 44% 32%);
-    --primary-glow: color-mix(in hsl, var(--primary) 95%, white);
-    --primary-foreground: hsl(210deg 40% 98%);
-    --card: hsl(0deg 0% 100%);
-    --border: hsl(214deg 32% 91%);
+    --color-background: hsl(210deg 15% 95%);
+    --color-foreground: hsl(222deg 47% 11%);
+    --color-muted-foreground: hsl(215deg 16% 30%);
+    --color-primary: hsl(155deg 44% 32%);
+    --color-primary-glow: color-mix(in hsl, var(--color-primary) 95%, white);
+    --color-primary-foreground: hsl(210deg 40% 98%);
+    --color-card: hsl(0deg 0% 100%);
+    --color-border: hsl(214deg 32% 91%);
 
     /* Shadows */
     --shadow-card-hover: 0 10px 15px hsl(0deg 0% 0% / 10%);
-    --shadow-button-primary: 0 0 15px color-mix(in hsl, var(--primary) 50%, black);
-    --shadow-button-primary-inverted: 0 0 15px color-mix(in hsl, var(--primary) 50%, white);
+    --shadow-button-primary: 0 0 15px color-mix(in hsl, var(--color-primary) 50%, black);
+    --shadow-button-primary-inverted: 0 0 15px color-mix(in hsl, var(--color-primary) 50%, white);
 
     /* Animations */
     --animate-pulse-subtle: pulse-subtle 2s ease-in-out infinite;
@@ -91,24 +91,36 @@
   }
 
   .dark {
-    --background: hsl(222deg 47% 4%);
-    --foreground: hsl(213deg 31% 91%);
-    --muted-foreground: hsl(215deg 20% 75%);
-    --card: hsl(222deg 47% 8%);
-    --border: hsl(217deg 33% 20%);
+    --color-background: hsl(222deg 47% 4%);
+    --color-foreground: hsl(213deg 31% 91%);
+    --color-muted-foreground: hsl(215deg 20% 75%);
+    --color-card: hsl(222deg 47% 8%);
+    --color-border: hsl(217deg 33% 20%);
     --shadow-card-hover: 0 10px 15px hsl(0deg 0% 100% / 10%);
   }
 
   html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
   }
 
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     transition: color 0.3s;
     font-feature-settings: " rlig" 1, "calt" 1;
   }
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
 }
 
 .container {
@@ -137,10 +149,49 @@
   }
 }
 
-.text-glow {
-  position: relative;
-  text-shadow: 0 0 20px var(--primary-glow);
+/* ============================================
+   Button Components
+   ============================================ */
+
+.cosmic-button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  box-shadow: var(--shadow-button-primary);
 }
+
+.cosmic-button:hover {
+  transform: scale(1.05);
+}
+
+.cosmic-button:active {
+  transform: scale(0.95);
+}
+
+.cosmic-button-inverted {
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  box-shadow: var(--shadow-button-primary-inverted);
+}
+
+.cosmic-button-inverted:hover {
+  transform: scale(1.05);
+}
+
+.cosmic-button-inverted:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   Card Components
+   ============================================ */
 
 .card-hover {
   transition: transform 0.3s;
@@ -159,96 +210,74 @@
 .gradient-border {
   position: relative;
   border-radius: 0.375rem;  
-  background: linear-gradient(to right, var(--card), var(--card));
+  background: linear-gradient(to right, var(--color-card), var(--color-card));
   background-clip: padding-box;
   border: 1px solid transparent;
 }
 
-.cosmic-button {
-  padding: 0.5rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 500;
-  transition: all 0.3s;
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  box-shadow: var(--shadow-button-primary);
+/* ============================================
+   Background Utilities
+   ============================================ */
+
+.bg-background {
+  background-color: var(--color-background);
 }
 
-.cosmic-button:hover {
-  transform: scale(1.05);
+.bg-card {
+  background-color: var(--color-card);
 }
 
-.cosmic-button:active {
-  transform: scale(0.95);
+.bg-primary {
+  background-color: var(--color-primary);
 }
 
-.cosmic-button-inverted {
-  padding: 0.5rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 500;
-  transition: all 0.3s;
-  background-color: var(--background);
-  color: var(--foreground);
-  box-shadow: var(--shadow-button-primary-inverted);
+/* ============================================
+   Text & Color Utilities
+   ============================================ */
+
+.text-foreground {
+  color: var(--color-foreground);
 }
 
-.cosmic-button-inverted:hover {
-  transform: scale(1.05);
+.text-muted-foreground {
+  color: var(--color-muted-foreground);
 }
 
-.cosmic-button-inverted:active {
-  transform: scale(0.95);
+.text-primary {
+  color: var(--color-primary);
 }
 
-.star {
-  position: absolute;
-  border-radius: 100%;
-  background-color: hsl(0deg 0% 100%);
-  box-shadow: 0 0 10px 2px hsl(0deg 0% 100% / 40%);
+.text-glow {
+  position: relative;
+  text-shadow: 0 0 20px var(--color-primary-glow);
 }
 
-.meteor {
-  position: absolute;
-  border-radius: 100%;
-  background: linear-gradient(to right, hsl(0deg 0% 100%), hsl(0deg 0% 100%), transparent);
-  box-shadow: 0 0 7px 5px hsl(0deg 0% 100% / 20%);
-  animation: meteor 5s linear;
+/* ============================================
+   Interactive States
+   ============================================ */
+
+.hover-text-primary {
+  transition: color 0.3s;
+}
+
+.hover-text-primary:hover {
+  color: var(--color-primary);
+}
+
+.hover-text-primary:active {
+  color: var(--color-primary);
 }
 
 .icon-color-transition {
   transition: color 1s ease-in-out;
 }
 
-#root {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-}
+/* ============================================
+   Animation Utilities
+   ============================================ */
 
-/* Custom utility for background using CSS variable */
-.bg-background {
-  background-color: var(--background);
-}
-
-.bg-primary {
-  background-color: var(--primary);
-}
-
-.bg-card {
-  background-color: var(--card);
-}
-
-.text-foreground {
-  color: var(--foreground);
-}
-
-.text-muted-foreground {
-  color: var(--muted-foreground);
-}
-
-.text-primary {
-  color: var(--primary);
+.animate-bounce-up {
+  animation: animate-bounce-up 1s infinite;
 }
 
 .animate-fade-in {
@@ -271,23 +300,25 @@
   animation: var(--animate-fade-in-delay-4);
 }
 
-.hover-text-primary {
-  transition: color 0.3s;
-}
-
-.hover-text-primary:hover {
-    color: var(--primary);
-}
-
-/* Mobile: active state instead of hover */
-  .hover-text-primary:active {
-    color: var(--primary);
-}
-
 .animate-skill-bar {
   transition: grow 1.5s ease-out;
 }
 
-.animate-bounce-up {
-  animation: animate-bounce-up 1s infinite;
+/* ============================================
+   Special Effects
+   ============================================ */
+
+.star {
+  position: absolute;
+  border-radius: 100%;
+  background-color: hsl(0deg 0% 100%);
+  box-shadow: 0 0 10px 2px hsl(0deg 0% 100% / 40%);
+}
+
+.meteor {
+  position: absolute;
+  border-radius: 100%;
+  background: linear-gradient(to right, hsl(0deg 0% 100%), hsl(0deg 0% 100%), transparent);
+  box-shadow: 0 0 7px 5px hsl(0deg 0% 100% / 20%);
+  animation: meteor 5s linear;
 }

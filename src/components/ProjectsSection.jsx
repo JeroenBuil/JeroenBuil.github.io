@@ -32,15 +32,24 @@ const projectList =[
   { 
     project_id:4,
     title: "Portfolio Website",
-    description: "A custom-built portfolio website showcasing my projects and skills.",
+    description: "A custom-built portfolio website showcasing my projects and experience.",
     tags: ["React.js", "Tailwind CSS", "JavaScript"],
     link: "https://github.com/JeroenBuil/JeroenBuil.github.io",
     image: "/projects/Portfolio_Website.png",
     icon: "github"
+  },
+  { 
+    project_id:5,
+    title: "Web Scraper",
+    description: "Data scraper built with Python and BeautifulSoup to extract data from public databases.",
+    tags: ["Python", "BeautifulSoup", "Web Scraping"],
+    link: "https://github.com/JeroenBuil/web-scraper",
+    image: "/projects/WebScraper.png",
+    icon: "github"
   }
 ]
 
-export const ProjectsSection = () => {
+export const Projects = () => {
     return (
         <section id="projects" className="py-24 px-4 relative">
            <div className="container max-w-5xl mx-auto">
@@ -69,11 +78,11 @@ export const ProjectsSection = () => {
                         // Add hover effect to icon to change colour when hovering over the card
                         onMouseEnter={(e) => {
                           const icon = e.currentTarget.querySelector('[data-icon]');
-                          if (icon) icon.style.color = 'var(--primary)';
+                          if (icon) icon.style.color = 'var(--color-primary)';
                         }}
                         onMouseLeave={(e) => {
                           const icon = e.currentTarget.querySelector('[data-icon]');
-                          if (icon) icon.style.color = 'var(--muted-foreground)';
+                          if (icon) icon.style.color = 'var(--color-muted-foreground)';
                         }}
                       >
                           {/* Image */}
@@ -110,7 +119,7 @@ export const ProjectsSection = () => {
                                     data-icon
                                     className="transition-colors"
                                     style={{
-                                      color: 'var(--muted-foreground)',
+                                      color: 'var(--color-muted-foreground)',
                                     }}
                                   >
                                     {project.icon === "github" ? <Github size={20} /> : <ExternalLink size={20} />}

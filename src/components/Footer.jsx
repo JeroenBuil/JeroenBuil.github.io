@@ -6,7 +6,7 @@ export const Footer = () => {
         event.preventDefault();
         const target = document.getElementById("home");
         if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            target.scrollIntoView({ block: "start" });
         }
     };
 
