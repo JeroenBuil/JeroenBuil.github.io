@@ -17,27 +17,27 @@ export const AboutSection = () => {
                 </h2>
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6 text-muted-foreground">
+                    <div className="space-y-6 text-muted-foreground text-left">
                         <h3 className="text-2xl md:text-2xl font-semibold text-foreground">
                             AI & Biomedical engineer<br></br> Solution Builder
                         </h3>
                         <p>
-                            I bring 11+ years of experience creating AI and engineering solutions that bridge
+                            <span className="font-bold"> 11+ years of experience </span> creating AI and engineering solutions that bridge
                             industry and research. I focus on practical, production-ready work that helps teams
                             move faster and deliver real outcomes. 
                         </p>
-                        <p className="mb-2">Fields I’ve worked in:</p>
+                        {/* <p className="mb-2">Fields I’ve worked in:</p>
                         <ul className="list-disc list-inside space-y-1">
                             <li>Biotech</li>
                             <li>Medtech</li>
                             <li>Finance</li>
-                        </ul>
+                        </ul> */}
                         <p>
-                            I strive to leave a positive impact with my work, whether it’s improving patient outcomes, enabling
+                            I strive to leave a <span className="font-bold">positive impact</span> with my work, whether it’s improving patient outcomes, enabling
                             scientific discovery, or building reliable (data-driven) systems in complex environments.
                         </p>
                         <p>
-                            Outside of work, I’m usually on the water or tinkering with electronics.<br></br>
+                            <span className="font-bold">Outside of work,</span> I’m usually on the water or tinkering with electronics.<br></br>
                             I'm also a passionate photographer/videographer.
                         </p>
 
@@ -65,7 +65,7 @@ export const AboutSection = () => {
                                     <Code className="h-6 w-6 text-primary" />
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="font-semibold text-lg">AI / ML</h4>
+                                    <h4 className="font-semibold text-sm">AI / ML</h4>
                                     <p className="text-muted-foreground">
                                         Extensive experience in building and deploying AI/ML solutions in real-world settings,
                                         with a focus on robustness, scalability, and maintainability.

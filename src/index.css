@@ -1,23 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-card: hsl(var(--card));
-  --color-border: hsl(var(--border));
-  --anime-float: float 6s ease-in-out infinite;
-  --animate-pulse-subtle: pulse-subtle 2s ease-in-out infinite;
-  --animate-fade-in: fade-in 0.7s ease-out forwards;
-  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
-  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
-  --animate-fade-in-delay-3: fade-in 0.7s ease-out 1s forwards;
-  --animate-fade-in-delay-4: fade-in 0.7s ease-out 1.5s forwards;
-  --meteor-distance: -1000px;
-}
-
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -67,31 +49,54 @@
   }
 }
 
+@keyframes animate-bounce-up {
+  0%, 100% {
+    transform: translateY(25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
 @layer base {
   :root {
-    --background: 210 15% 95%;
-    --foreground: 222 47% 11%;
-    --muted-foreground: 215 16% 30%;
-    --primary: 250 47% 60%;
-    --primary-foreground: 210 40% 98%;
-    --card: 0 0% 100%;
-    --border: 214 32% 91%;
+    /* Colors */
+    --background: hsl(210deg 15% 95%);
+    --foreground: hsl(222deg 47% 11%);
+    --muted-foreground: hsl(215deg 16% 30%);
+    --primary: hsl(155deg 44% 32%);
+    --primary-glow: color-mix(in hsl, var(--primary) 95%, white);
+    --primary-foreground: hsl(210deg 40% 98%);
+    --card: hsl(0deg 0% 100%);
+    --border: hsl(214deg 32% 91%);
+
+    /* Shadows */
+    --shadow-card-hover: 0 10px 15px hsl(0deg 0% 0% / 10%);
+    --shadow-button-primary: 0 0 15px color-mix(in hsl, var(--primary) 50%, black);
+    --shadow-button-primary-inverted: 0 0 15px color-mix(in hsl, var(--primary) 50%, white);
+
+    /* Animations */
+    --animate-pulse-subtle: pulse-subtle 2s ease-in-out infinite;
+    --animate-fade-in: fade-in 0.7s ease-out forwards;
+    --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+    --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+    --animate-fade-in-delay-3: fade-in 0.7s ease-out 1s forwards;
+    --animate-fade-in-delay-4: fade-in 0.7s ease-out 1.5s forwards;
+
+    /* Utility */
+    --meteor-distance: -1000px;
   }
 
   .dark {
-    --background: 222 47% 4%;
-    --foreground: 213 31% 91%;
-    --muted-foreground: 215 20% 75%;
-    --primary: 250 65% 65%;
-    --primary-foreground: 213 31% 91%;
-    --card: 222 47% 8%;
-    --border: 217 33% 20%;
-  }
-
-  * {
-    /* @apply border-border; */
-
-    /* border-border is not a standard Tailwind utility. Remove or replace with a valid Tailwind class or custom CSS. */
+    --background: hsl(222deg 47% 4%);
+    --foreground: hsl(213deg 31% 91%);
+    --muted-foreground: hsl(215deg 20% 75%);
+    --card: hsl(222deg 47% 8%);
+    --border: hsl(217deg 33% 20%);
+    --shadow-card-hover: 0 10px 15px hsl(0deg 0% 100% / 10%);
   }
 
   html {
@@ -99,8 +104,8 @@
   }
 
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background-color: var(--background);
+    color: var(--foreground);
     transition: color 0.3s;
     font-feature-settings: " rlig" 1, "calt" 1;
   }
@@ -134,7 +139,7 @@
 
 .text-glow {
   position: relative;
-  text-shadow: 0 0 20px rgb(167 139 250 / 80%);
+  text-shadow: 0 0 20px var(--primary-glow);
 }
 
 .card-hover {
@@ -144,17 +149,17 @@
 
 .card-hover:hover {
   transform: scale(1.02);
-  box-shadow: 0 10px 15px rgb(0 0 0 / 10%);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .dark .card-hover:hover {
-  box-shadow: 0 10px 15px rgb(255 255 255 / 10%);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .gradient-border {
   position: relative;
   border-radius: 0.375rem;  
-  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+  background: linear-gradient(to right, var(--card), var(--card));
   background-clip: padding-box;
   border: 1px solid transparent;
 }
@@ -164,9 +169,9 @@
   border-radius: 9999px;
   font-weight: 500;
   transition: all 0.3s;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-  box-shadow: 0 0 10px rgb(139 92 246 / 50%);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-button-primary);
 }
 
 .cosmic-button:hover {
@@ -182,34 +187,31 @@
   border-radius: 9999px;
   font-weight: 500;
   transition: all 0.3s;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  box-shadow: 0 0 15px rgb(139 92 246 / 80%);
+  background-color: var(--background);
+  color: var(--foreground);
+  box-shadow: var(--shadow-button-primary-inverted);
 }
 
 .cosmic-button-inverted:hover {
   transform: scale(1.05);
-  background-color: hsl(var(--primary) / 0.1);
 }
 
 .cosmic-button-inverted:active {
   transform: scale(0.95);
 }
 
-
-
 .star {
   position: absolute;
   border-radius: 100%;
-  background-color: white;
-  box-shadow: 0 0 10px 2px rgb(255 255 255 / 40%);
+  background-color: hsl(0deg 0% 100%);
+  box-shadow: 0 0 10px 2px hsl(0deg 0% 100% / 40%);
 }
 
 .meteor {
   position: absolute;
   border-radius: 100%;
-  background: linear-gradient(to right, white, white, transparent);
-  box-shadow: 0 0 7px 5px rgb(255 255 255 / 20%);
+  background: linear-gradient(to right, hsl(0deg 0% 100%), hsl(0deg 0% 100%), transparent);
+  box-shadow: 0 0 7px 5px hsl(0deg 0% 100% / 20%);
   animation: meteor 5s linear;
 }
 
@@ -226,27 +228,27 @@
 
 /* Custom utility for background using CSS variable */
 .bg-background {
-  background-color: hsl(var(--background));
+  background-color: var(--background);
 }
 
 .bg-primary {
-  background-color: hsl(var(--primary));
+  background-color: var(--primary);
 }
 
 .bg-card {
-  background-color: hsl(var(--card));
+  background-color: var(--card);
 }
 
 .text-foreground {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .text-muted-foreground {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .text-primary {
-  color: hsl(var(--primary));
+  color: var(--primary);
 }
 
 .animate-fade-in {
@@ -274,12 +276,12 @@
 }
 
 .hover-text-primary:hover {
-    color: hsl(var(--primary));
+    color: var(--primary);
 }
 
 /* Mobile: active state instead of hover */
   .hover-text-primary:active {
-    color: hsl(var(--primary));
+    color: var(--primary);
 }
 
 .animate-skill-bar {
@@ -288,16 +290,4 @@
 
 .animate-bounce-up {
   animation: animate-bounce-up 1s infinite;
-}
-
-@keyframes animate-bounce-up  {
-  0%, 100% {
-    transform: translateY(25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
 }
