@@ -30,7 +30,7 @@ export const HomeSection = () => {
                         "text-md md:text-lg text-muted-foreground max-w-5xl mx-auto"
                     )}>
                         {/* <p className="mb-2">11+ years of AI engineering.</p> */}
-                        <p className="mb-2">Building real-world AI & Engineering solutions across:</p>
+                        <p className="mb-2">Building real-world solutions across:</p>
                         <ul className="list-disc space-y-1 mb-1 inline-block text-left pl-5">
                             <li>Biotech</li>
                             <li>Medtech</li>
