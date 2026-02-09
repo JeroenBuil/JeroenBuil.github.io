@@ -58,7 +58,7 @@ export const Projects = () => {
                   Featured <span className="text-primary">Projects</span>
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                  A selection of personal projects that reflect my creativity, technical skills, and passion for building things outside of work.
+                  A selection of personal projects that reflect my creativity, technical skills, and passion for building things in my free time.
               </p>
 
               {/* Project Cards Grid */}

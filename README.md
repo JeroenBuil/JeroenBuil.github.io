@@ -1,16 +1,25 @@
-# Portfolio of Jeroen Buil (WIP)
-Work in progress portfolio website hosted on github.
+# Portfolio of Jeroen Buil
+My personal portfolio showcasing my work experience, skills, and highlighting some of my personal projects
 
 Current features:
+- Landing Page:
+  - Home
+  - About
+  - Skills
+  - Projects
+  - Contact
+- Downloadable CV
 - Theme toggle button
-- Animated background in dark mode (the one and only mode!)
-- Welcome 'Home' Section
+- Animated background in dark mode (=> arguably the best mode!)
 
 To-Do:
-- About section
-- Projects section
-- Contact section
-- Link Menu buttons to sections
+- Add message functionality
+- Link message function to email service
+- Headshot in About Me section
+- Overview work experience
+- Add Astrophotography portfolio page
+- Add blog describing Guitar Project
+- Add DIY Ergonomic Keyboard Project
 
 # React + Vite
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -146,4 +155,4 @@ git commit -m "Your message"
 git push origin main
 ```
 
-The GitHub Actions workflow will automatically build and deploy your site to `https://jeroenbuil.github.io/`.
+The GitHub Actions workflow will automatically build and deploy this site to `https://jeroenbuil.github.io/`.

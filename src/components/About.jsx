@@ -4,6 +4,15 @@ import { Code, Users, Workflow } from "lucide-react";
 
 
 export const About = () => {
+
+    const handleScrollToContact = (event) => {
+        event.preventDefault();
+        const target = document.getElementById("contact");
+        if (target) {
+            target.scrollIntoView({ block: "start" });
+        }
+    };
+
     return (
         <section 
           id="about"
@@ -44,7 +53,7 @@ export const About = () => {
                         {/* Call to Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                             {/* Get in touch button */}
-                            <a href="#contact" className='cosmic-button'>
+                            <a href="#contact" className='cosmic-button' onClick={handleScrollToContact}>
                                 Get In Touch
                             </a>
                             {/* Download CV button */}
