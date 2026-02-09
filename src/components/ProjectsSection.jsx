@@ -46,7 +46,7 @@ export const ProjectsSection = () => {
                       <div 
                         key={project.project_id}
                         className={cn(
-                          "group block rounded-lg overflow-hidden transition-all duration-300",
+                          "group bg-card rounded-lg overflow-hidden transition-all duration-300",
                           "card-hover"
                           
                         )}
