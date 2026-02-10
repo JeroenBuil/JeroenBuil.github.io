@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ExternalLink, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const projectList =[
   {
@@ -17,6 +18,7 @@ const projectList =[
     description: "Portfolio showcasing my astrophotography work I have shot over the years.",
     tags: ["Photography","Fuji-Film X-T10", "Patience"],
     link: "N/A",
+    route: "/astrophotography",
     image: "/projects/Astrophotography.jpg",
     icon: null
   },
@@ -63,72 +65,112 @@ export const Projects = () => {
 
               {/* Project Cards Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {projectList.map((project) => (
-                      <a
-                        key={project.project_id}
-                        // Only add href, target, and rel if the link is valid (not "N/A")
-                        href={project.link !== "N/A" ? project.link : undefined} // actual URL to navigate to if valid, otherwise undefined
-                        target={project.link !== "N/A" ? "_blank" : undefined} // opens a new tab if the link is valid
-                        rel={project.link !== "N/A" ? "noopener noreferrer" : undefined} // security best practices for external links
-                        className={cn(
-                          "group bg-card rounded-lg overflow-hidden transition-all duration-300 block",
-                          "card-hover",
-                          project.link !== "N/A" ? "cursor-pointer" : "cursor-default"
-                        )}
-                        // Add hover effect to icon to change colour when hovering over the card
-                        onMouseEnter={(e) => {
-                          const icon = e.currentTarget.querySelector('[data-icon]');
-                          if (icon) icon.style.color = 'var(--color-primary)';
-                        }}
-                        onMouseLeave={(e) => {
-                          const icon = e.currentTarget.querySelector('[data-icon]');
-                          if (icon) icon.style.color = 'var(--color-muted-foreground)';
-                        }}
-                      >
+                  {projectList.map((project) => {
+                      const isExternal = project.link !== "N/A";
+                      const isInternal = Boolean(project.route);
+                      const cardClasses = cn(
+                        "group bg-card rounded-lg overflow-hidden transition-all duration-300 block",
+                        "card-hover",
+                        isExternal || isInternal ? "cursor-pointer" : "cursor-default"
+                      );
+                      const cardContent = (
+                        <>
                           {/* Image */}
                           <img
-                              src={project.image}
-                              alt={project.title}
-                              className="w-full aspect-[16/9] hover:transform hover:scale-103 transition-transform duration-300 object-cover"
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full aspect-[16/9] hover:transform hover:scale-103 transition-transform duration-300 object-cover"
                           />
                           {/* Content */}
                           <div className="p-4">
-                              {/* Title */}
-                              <h3 className="text-xl font-semibold mb-2">
-                                {project.title}
-                              </h3>
-                              {/* Description */}
-                              <p className="text-muted-foreground">
-                                {project.description}
-                              </p>
-                              {/* Tags */}
-                              <div className="flex flex-wrap gap-2 mt-4 justify-center">
-                                  {project.tags.map((tag, index) => (
-                                      <span
-                                          key={index}
-                                          className="px-2 py-1 inline-block bg-primary text-white text-xs rounded mr-2"
-                                      >
-                                          {tag}
-                                      </span>
-                                  ))}
-                              </div>
-                              {/* Icon (GitHub or External Link) */}
-                              {project.icon && (
-                                <div className="mt-4 flex justify-start">
-                                  <div 
-                                    data-icon
-                                    className="transition-colors"
-                                    style={{
-                                      color: 'var(--color-muted-foreground)',
-                                    }}
-                                  >
-                                    {project.icon === "github" ? <Github size={20} /> : <ExternalLink size={20} />}
-                                  </div>
+                            {/* Title */}
+                            <h3 className="text-xl font-semibold mb-2">
+                              {project.title}
+                            </h3>
+                            {/* Description */}
+                            <p className="text-muted-foreground">
+                              {project.description}
+                            </p>
+                            {/* Tags */}
+                            <div className="flex flex-wrap gap-2 mt-4 justify-center">
+                              {project.tags.map((tag, index) => (
+                                <span
+                                  key={index}
+                                  className="px-2 py-1 inline-block bg-primary text-white text-xs rounded mr-2"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                            {/* Icon (GitHub or External Link) */}
+                            {project.icon && (
+                              <div className="mt-4 flex justify-start">
+                                <div
+                                  data-icon
+                                  className="transition-colors"
+                                  style={{
+                                    color: 'var(--color-muted-foreground)',
+                                  }}
+                                >
+                                  {project.icon === "github" ? <Github size={20} /> : <ExternalLink size={20} />}
                                 </div>
-                              )}
+                              </div>
+                            )}
                           </div>
-                      </a>
-                  ))}
+                        </>
+                      );
+
+                      const handleMouseEnter = (e) => {
+                        const icon = e.currentTarget.querySelector('[data-icon]');
+                        if (icon) icon.style.color = 'var(--color-primary)';
+                      };
+
+                      const handleMouseLeave = (e) => {
+                        const icon = e.currentTarget.querySelector('[data-icon]');
+                        if (icon) icon.style.color = 'var(--color-muted-foreground)';
+                      };
+
+                      if (isInternal) {
+                        return (
+                          <Link
+                            key={project.project_id}
+                            to={project.route}
+                            className={cardClasses}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                          >
+                            {cardContent}
+                          </Link>
+                        );
+                      }
+
+                      if (isExternal) {
+                        return (
+                          <a
+                            key={project.project_id}
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={cardClasses}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                          >
+                            {cardContent}
+                          </a>
+                        );
+                      }
+
+                      return (
+                        <div
+                          key={project.project_id}
+                          className={cardClasses}
+                          onMouseEnter={handleMouseEnter}
+                          onMouseLeave={handleMouseLeave}
+                        >
+                          {cardContent}
+                        </div>
+                      );
+                  })}
                 </div>
            </div>
         </section>

@@ -17,7 +17,7 @@ To-Do:
 - Link message function to email service
 - Headshot in About Me section
 - Overview work experience
-- Add Astrophotography portfolio page
+- ~~Add Astrophotography portfolio page~~ ✓ Complete with auto-gallery watcher
 - Add blog describing Guitar Project
 - Add DIY Ergonomic Keyboard Project
 
@@ -136,6 +136,61 @@ Without `.nojekyll`, GitHub Pages might silently drop or modify your production 
 npm install  # Install dependencies (do once)
 npm run dev  # Start development server
 ```
+
+The `npm run dev` command automatically:
+1. Generates the gallery manifest from all images in gallery folders
+2. Starts a file watcher that monitors gallery folders for changes
+3. Launches the Vite dev server with hot module reload (HMR)
+
+### Gallery Management with Auto-Watch
+
+The portfolio includes an **automatic gallery watcher** that monitors image folders and regenerates gallery manifests without requiring server restarts.
+
+#### How It Works
+
+When you run `npm run dev`:
+- A watcher monitors `public/projects/astrophotography/` (and any future gallery folders)
+- When you **add** or **delete** images, the manifest generates automatically
+- The browser **automatically refreshes** to show new images
+- No manual restart needed — just add photos and they appear
+
+#### Setup for New Gallery Folders
+
+1. Create a new folder in `public/projects/{gallery-name}/`
+2. Add the folder path to `package.json`:
+   ```json
+   "scripts": {
+     "gallery:manifest": "node scripts/generate-gallery-manifest.mjs public/projects/{gallery-name}",
+     "gallery:watch": "node scripts/watch-gallery.mjs public/projects/{gallery-name}"
+   }
+   ```
+3. Create a new gallery page component (copy from `src/pages/Astrophotography.jsx`)
+4. Update the fetch URL to point to your new folder: `/projects/{gallery-name}/index.json`
+5. Add the route in `src/App.jsx`
+
+#### Adding Photos During Development
+
+```bash
+# While npm run dev is running:
+# 1. Drag photos into public/projects/astrophotography/
+# 2. Watch console output:
+#    [ADD] photo.jpg
+#    [19:05:22] Generating gallery manifest...
+#      Wrote 8 entries to public/projects/astrophotography/index.json
+# 3. Browser auto-refreshes — new photos appear instantly
+```
+
+#### Manual Manifest Generation
+
+If you need to regenerate manifests without watching:
+```bash
+npm run gallery:manifest
+```
+
+This is useful when:
+- Adding photos before starting dev mode
+- During CI/CD builds (run before `npm run build`)
+- Syncing gallery folders from external sources
 
 ### Build for Production
 ```bash

@@ -14,6 +14,8 @@
         ]
       }
     ],
+    "color-function-notation": "modern",
+    "alpha-value-notation": "number",
     "import-notation": null
   }
 }
