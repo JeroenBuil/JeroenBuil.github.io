@@ -1,5 +1,5 @@
 
-import { cn } from "@/lib/utils";
+import { cn, handleScrollToSection } from "@/lib/utils";
 import { Code, Users, Workflow } from "lucide-react";
 
 
@@ -53,7 +53,8 @@ export const About = () => {
                         {/* Call to Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                             {/* Get in touch button */}
-                            <a href="#contact" className='cosmic-button' onClick={handleScrollToContact}>
+                            <a href="#contact" className='cosmic-button'
+                               onClick={(e) => handleScrollToSection(e, "contact")}>
                                 Get In Touch
                             </a>
                             {/* Download CV button */}

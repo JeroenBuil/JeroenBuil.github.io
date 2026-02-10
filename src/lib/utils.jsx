@@ -6,3 +6,16 @@ import { twMerge } from 'tailwind-merge';
 export const cn = (...inputs) => {
     return twMerge(clsx(inputs));
 };
+
+/**
+ * Scrolls to a section by ID
+ * @param {Event} event - The event object
+ * @param {string} section_id - The section ID to scroll to
+ */
+export const handleScrollToSection = (event, section_id) => {
+    event.preventDefault();
+    const target = document.getElementById(section_id);
+    if (target) {
+        target.scrollIntoView({ block: "start" });
+    }
+};
