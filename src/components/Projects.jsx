@@ -14,11 +14,11 @@ const projectList =[
   },
   {
     project_id:2,
-    title: "Astrophotography",
-    description: "Portfolio showcasing my astrophotography work I have shot over the years.",
+    title: "Photography",
+    description: "Portfolio showcasing some of my favourite shots I've taken over the years.",
     tags: ["Photography","Fuji-Film X-T10", "Patience"],
     link: "N/A",
-    route: "/astrophotography",
+    route: "/photography",
     image: "/projects/Astrophotography.jpg",
     icon: null
   },
