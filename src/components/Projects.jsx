@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Images } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const projectList =[
   {
     project_id:1,
     title: "Monkey Collar",
-    description: "Created a monkey collar easing animal stress: ultra-light collar, remotely releasable, lowering costs/weight 10-30x",
+    description: "Created a monkey collar reducing animal stress: ultra-light collar, remotely releasable, lowering costs/weight 10-30x",
     tags: ['Arduino', 'Bluetooh', '3D Printing', 'Animal Wellbeing'],
     link: "https://nsojournals.onlinelibrary.wiley.com/doi/full/10.2981/wlb.00581",
     image: "/projects/MonkeyCollar.jpg",
@@ -20,7 +20,7 @@ const projectList =[
     link: "N/A",
     route: "/photography",
     image: "/projects/Astrophotography.jpg",
-    icon: null
+    icon: 'images'
   },
   {
     project_id:3,
@@ -60,7 +60,7 @@ export const Projects = () => {
                   Featured <span className="text-primary">Projects</span>
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                  A selection of personal projects that reflect my creativity, technical skills, and passion for building things in my free time.
+                  A selection of personal projects reflecting my creativity, technical skills, and passion for building things in my free time.
               </p>
 
               {/* Project Cards Grid */}
@@ -69,7 +69,7 @@ export const Projects = () => {
                       const isExternal = project.link !== "N/A";
                       const isInternal = Boolean(project.route);
                       const cardClasses = cn(
-                        "group bg-card rounded-lg overflow-hidden transition-all duration-300 block",
+                        "group bg-card rounded-lg overflow-hidden transition-all duration-300 flex flex-col h-full",
                         "card-hover",
                         isExternal || isInternal ? "cursor-pointer" : "cursor-default"
                       );
@@ -82,40 +82,45 @@ export const Projects = () => {
                             className="w-full aspect-[16/9] hover:transform hover:scale-103 transition-transform duration-300 object-cover"
                           />
                           {/* Content */}
-                          <div className="p-4">
-                            {/* Title */}
-                            <h3 className="text-xl font-semibold mb-2">
-                              {project.title}
-                            </h3>
-                            {/* Description */}
-                            <p className="text-muted-foreground">
-                              {project.description}
-                            </p>
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-2 mt-4 justify-center">
-                              {project.tags.map((tag, index) => (
-                                <span
-                                  key={index}
-                                  className="px-2 py-1 inline-block bg-primary text-white text-xs rounded mr-2"
-                                >
-                                  {tag}
-                                </span>
-                              ))}
+                          <div className="p-4 flex flex-col h-full">
+                            <div className="flex-grow">
+                              {/* Title */}
+                              <h3 className="text-xl font-semibold mb-2">
+                                {project.title}
+                              </h3>
+                              {/* Description */}
+                              <p className="text-muted-foreground">
+                                {project.description}
+                              </p>
                             </div>
-                            {/* Icon (GitHub or External Link) */}
-                            {project.icon && (
-                              <div className="mt-4 flex justify-start">
-                                <div
-                                  data-icon
-                                  className="transition-colors"
-                                  style={{
-                                    color: 'var(--color-muted-foreground)',
-                                  }}
-                                >
-                                  {project.icon === "github" ? <Github size={20} /> : <ExternalLink size={20} />}
-                                </div>
+                            {/* Tags and Icon Container */}
+                            <div className="mt-auto pt-4">
+                              {/* Tags */}
+                              <div className="flex flex-wrap gap-2 mb-4 justify-center">
+                                {project.tags.map((tag, index) => (
+                                  <span
+                                    key={index}
+                                    className="px-3 py-1 inline-block bg-primary text-white text-sm rounded mr-2"
+                                  >
+                                    {tag}
+                                  </span>
+                                ))}
                               </div>
-                            )}
+                              {/* Icon (GitHub or External Link) */}
+                              <div className="flex justify-start items-center h-10">
+                                {project.icon && (
+                                  <div
+                                    data-icon
+                                    className="transition-colors"
+                                    style={{
+                                      color: 'var(--color-muted-foreground)',
+                                    }}
+                                  >
+                                    {project.icon === "github" ? <Github size={20} /> : project.icon === "images" ? <Images size={20} /> : <ExternalLink size={20} />}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
                           </div>
                         </>
                       );

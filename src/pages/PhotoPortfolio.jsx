@@ -16,31 +16,37 @@ const TOPICS = [
   {
     id: "astro",
     label: "Astro",
+    title: "Solitude & Long Exposures",
     description: "Night sky and long exposure shots captured around the world",
   },
   {
     id: "landscape",
     label: "Landscape",
-    description: "Landscape and scenic photography",
+    title: "Landscape & Scenic Views",
+    description: "I try to bring my camera on every hike. It has paid off!",
   },
   {
     id: "animal",
     label: "Animal",
-    description: "Animal and wildlife photography",
+    title: "Wildlife & Nature",
+    description: "I swear it's not only cat pictures! ;)",
   },
   {
     id: "cars",
     label: "Cars",
-    description: "Automotive photography and details",
+    title: "Automotive & Vehicles",
+    description: "My love for cars and automotive photography",
   },
   {
     id: "street",
     label: "Street",
-    description: "Street photography and urban scenes",
+    title: "Street & Urban Scenes",
+    description: "Candid moments and urban life captured on the streets",
   },
   {
     id: "aerial",
     label: "Aerial",
+    title: "Aerial & Drone Photography",
     description: "Drone and aerial photography",
   },
 ];
@@ -236,7 +242,7 @@ export const PhotoPortfolio = () => {
           </div>
 
           <div className="portfolio-heading">
-            <h1>{currentTopic?.label || "Photo Gallery"}</h1>
+            <h1>{currentTopic?.title || "Photo Gallery"}</h1>
             <p>{currentTopic?.description}</p>
             
             {/* Topic Selection Buttons */}
@@ -257,7 +263,7 @@ export const PhotoPortfolio = () => {
               ))}
             </div>
             
-            <p className="text-muted-foreground mt-4">
+            <p className="text-muted-foreground mt-8">
               Use the arrows or thumbnails to explore.
             </p>
           </div>
