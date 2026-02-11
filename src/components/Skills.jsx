@@ -25,37 +25,37 @@ const skillList = [
   { name: "Time-Series Processing", level: 95,  category: "Machine Learning & AI" },
 
   // Data Engineering & Cloud
-  { name: "ETL Pipelines", level: 100,  category: "Data Engineering & Cloud" },
-  { name: "Airflow", level: 60,  category: "Data Engineering & Cloud" },
-  { name: "Databricks", level: 90,  category: "Data Engineering & Cloud" },
-  { name: "PySpark", level: 75,  category: "Data Engineering & Cloud" },
-  { name: "Azure", level: 80,  category: "Data Engineering & Cloud" },
-  { name: "AWS", level: 60,  category: "Data Engineering & Cloud" },
+  { name: "ETL Pipelines", level: 100,  category: "Data & Cloud" },
+  { name: "Airflow", level: 60,  category: "Data & Cloud" },
+  { name: "Databricks", level: 90,  category: "Data & Cloud" },
+  { name: "PySpark", level: 75,  category: "Data & Cloud" },
+  { name: "Azure", level: 80,  category: "Data & Cloud" },
+  { name: "AWS", level: 60,  category: "Data & Cloud" },
 
-  // Visualization & Analytics
-  { name: "Matplotlib", level: 100,  category: "Visualization & Analytics" },
-  { name: "Seaborn", level: 100,  category: "Visualization & Analytics" },
-  { name: "Plotly", level: 100,  category: "Visualization & Analytics" },
-  { name: "Power BI", level: 70,  category: "Visualization & Analytics" },
-  { name: "SQL Server Management Studio", level: 80,  category: "Visualization & Analytics" },
-  { name: "Azure Data Studio", level: 75,  category: "Visualization & Analytics" },
+  // Dashboard & Analytics
+  { name: "Matplotlib", level: 100,  category: "Dashboard & Analytics" },
+  { name: "Seaborn", level: 100,  category: "Dashboard & Analytics" },
+  { name: "Plotly", level: 100,  category: "Dashboard & Analytics" },
+  { name: "Power BI", level: 70,  category: "Dashboard & Analytics" },
+  { name: "SQL Server Management Studio", level: 80,  category: "Dashboard & Analytics" },
+  { name: "Azure Data Studio", level: 75,  category: "Dashboard & Analytics" },
 
-  // DevOps & Infrastructure
-  { name: "Git", level: 100,  category: "DevOps & Infrastructure" },
-  { name: "CI/CD", level: 100,  category: "DevOps & Infrastructure" },
-  { name: "API Integration", level: 80,  category: "DevOps & Infrastructure" },
-  { name: "Docker", level: 60,  category: "DevOps & Infrastructure" },
-  { name: "Linux", level: 90,  category: "DevOps & Infrastructure" },
-  { name: "Windows", level: 80,  category: "DevOps & Infrastructure" },
-  { name: "macOS", level: 60,  category: "DevOps & Infrastructure" },
+  // DevOps
+  { name: "Git", level: 100,  category: "DevOps" },
+  { name: "CI/CD", level: 100,  category: "DevOps" },
+  { name: "API Integration", level: 80,  category: "DevOps" },
+  { name: "Docker", level: 60,  category: "DevOps" },
+  { name: "Linux", level: 90,  category: "DevOps" },
+  { name: "Windows", level: 80,  category: "DevOps" },
+  { name: "macOS", level: 60,  category: "DevOps" },
 
-  // Biomedical Engineering
-  { name: "MNE", level: 80,  category: "Biomedical Engineering" },
-  { name: "EEGLAB", level: 70,  category: "Biomedical Engineering" },
-  { name: "GDPR", level: 85,  category: "Biomedical Engineering" },
-  { name: "ISO 13485", level: 65,  category: "Biomedical Engineering" },
-  { name: "IEC 62304", level: 70,  category: "Biomedical Engineering" },
-  { name: "F.A.I.R.", level: 75,  category: "Biomedical Engineering" },
+  // Biomedical
+  { name: "MNE", level: 80,  category: "Biomedical" },
+  { name: "EEGLAB", level: 70,  category: "Biomedical" },
+  { name: "GDPR", level: 85,  category: "Biomedical" },
+  { name: "ISO 13485", level: 65,  category: "Biomedical" },
+  { name: "IEC 62304", level: 70,  category: "Biomedical" },
+  { name: "F.A.I.R.", level: 75,  category: "Biomedical" },
 
   // Hardware & Design
   { name: "Fusion 360", level: 90,  category: "Hardware & Design" },
@@ -92,7 +92,8 @@ export const Skills = () => {
               key={key}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                'px-5 py-2 rounded-full transition-colors duration-300 capitalize font-medium',
+                'px-2 py-1.5 sm:px-3 sm:py-3 text-md sm:text-base',
+                'rounded-full transition-colors duration-300 capitalize font-medium',
                 activeCategory === category ? "bg-primary text-primary-foreground shadow-md" : "bg-secondary/70 text-foreground hover:bg-primary/80"
               )}
             >

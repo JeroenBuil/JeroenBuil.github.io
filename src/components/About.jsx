@@ -107,8 +107,7 @@ export const About = () => {
                                     <h4 className="font-semibold text-lg">Bridge Builder</h4>
                                     <p className="text-muted-foreground">
                                         I bridge the gap between business and technical teams by speaking both languages fluently: 
-                                        I can translate complex technical concepts into understandable terms by indentifying which technical details are important for the stakeholders.
-                                        And I can translate business concepts into technical requirements.
+                                        I can translate complex technical concepts into understandable terms, and business concepts into technical requirements.
                                     </p>
                                 </div>
                             </div>
