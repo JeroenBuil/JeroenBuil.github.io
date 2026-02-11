@@ -46,8 +46,7 @@ export const About = () => {
                             scientific discovery, or building reliable (data-driven) systems in complex environments.
                         </p>
                         <p>
-                            <span className="font-bold">Outside of work,</span> I’m usually on the water or tinkering with electronics.<br></br>
-                            I'm also a passionate photographer/videographer.
+                            <span className="font-bold">Outside of work,</span> I’m usually on the water or tinkering with electronics. I'm also a passionate photo/videographer.
                         </p>
 
                         {/* Call to Action Buttons */}
@@ -77,8 +76,7 @@ export const About = () => {
                                 <div className="text-left">
                                     <h4 className="font-semibold text-lg">AI / ML</h4>
                                     <p className="text-muted-foreground">
-                                        Extensive experience in building and deploying AI/ML solutions in real-world settings,
-                                        with a focus on robustness, scalability, and maintainability.
+                                        Extensive experience in building and deploying AI/ML solutions in real-world settings.
                                     </p>
                                 </div>
                             </div>
@@ -107,8 +105,7 @@ export const About = () => {
                                     <h4 className="font-semibold text-lg">Bridge Builder</h4>
                                     <p className="text-muted-foreground">
                                         I bridge the gap between business and technical teams by speaking both languages fluently: 
-                                        I can translate complex technical concepts into understandable terms by indentifying which technical details are important for the stakeholders.
-                                        And I can translate business concepts into technical requirements.
+                                        I can translate complex technical concepts into understandable terms, and business concepts into technical requirements.
                                     </p>
                                 </div>
                             </div>

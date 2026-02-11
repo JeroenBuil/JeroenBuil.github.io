@@ -362,6 +362,7 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+
   --portfolio-stage-width: min(92vw, 900px);
 }
 
@@ -390,12 +391,21 @@
   max-width: var(--portfolio-stage-width);
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .portfolio-heading h1 {
   font-family: Fraunces, Georgia, serif;
   font-size: clamp(2.4rem, 4vw, 3.6rem);
   margin: 0 0 0.5rem;
+}
+
+@media (width <= 640px) {
+  .portfolio-heading h1 {
+    font-size: clamp(1.75rem, 5vw, 2.4rem);
+  }
 }
 
 .portfolio-heading p {
@@ -519,9 +529,30 @@
   grid-auto-flow: column;
   grid-auto-columns: minmax(80px, 120px);
   gap: 0.75rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
+  overflow: auto hidden;
+  padding-bottom: 0.75rem;
   scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(180deg 50% 55% / 0.6) hsl(220deg 25% 18%);
+}
+
+.portfolio-thumbs::-webkit-scrollbar {
+  height: 8px;
+}
+
+.portfolio-thumbs::-webkit-scrollbar-track {
+  background: hsl(220deg 25% 18%);
+  border-radius: 999px;
+}
+
+.portfolio-thumbs::-webkit-scrollbar-thumb {
+  background: hsl(180deg 50% 55% / 0.6);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.portfolio-thumbs::-webkit-scrollbar-thumb:hover {
+  background: hsl(180deg 50% 55%);
 }
 
 .portfolio-thumb {

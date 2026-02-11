@@ -12,12 +12,54 @@ const formatTitle = (fileName) => {
     .trim();
 };
 
-export const Astrophotography = () => {
+const TOPICS = [
+  {
+    id: "astro",
+    label: "Astro",
+    title: "Solitude & Long Exposures",
+    description: "Night sky and long exposure shots captured around the world",
+  },
+  {
+    id: "landscape",
+    label: "Landscape",
+    title: "Landscape & Scenic Views",
+    description: "I try to bring my camera on every hike. It has paid off!",
+  },
+  {
+    id: "animal",
+    label: "Animal",
+    title: "Wildlife & Nature",
+    description: "I swear it's not only cat pictures! ;)",
+  },
+  {
+    id: "cars",
+    label: "Cars",
+    title: "Automotive & Vehicles",
+    description: "My love for cars and automotive photography",
+  },
+  {
+    id: "street",
+    label: "Street",
+    title: "Street & Urban Scenes",
+    description: "Candid moments and urban life captured on the streets",
+  },
+  {
+    id: "aerial",
+    label: "Aerial",
+    title: "Aerial & Drone Photography",
+    description: "Drone and aerial photography",
+  },
+];
+
+export const PhotoPortfolio = () => {
+  const [selectedTopic, setSelectedTopic] = useState("astro");
   const [slides, setSlides] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
+
+  const currentTopic = TOPICS.find((t) => t.id === selectedTopic);
 
   const goNext = useCallback(() => {
     if (!slides.length) {
@@ -39,8 +81,11 @@ export const Astrophotography = () => {
     let isMounted = true;
 
     const loadGallery = async () => {
+      setIsLoading(true);
+      setLoadError(null);
+
       try {
-        const response = await fetch("/projects/astrophotography/index.json", {
+        const response = await fetch(`/projects/${selectedTopic}/index.json`, {
           cache: "no-store",
         });
 
@@ -52,7 +97,7 @@ export const Astrophotography = () => {
         const fileList = Array.isArray(files) ? files : [];
         const nextSlides = fileList.map((fileName, index) => ({
           id: `${index}-${fileName}`,
-          src: encodeURI(`/projects/astrophotography/${fileName}`),
+          src: encodeURI(`/projects/${selectedTopic}/${fileName}`),
           title: formatTitle(fileName),
           position: index + 1,
         }));
@@ -77,7 +122,7 @@ export const Astrophotography = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [selectedTopic]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -103,7 +148,7 @@ export const Astrophotography = () => {
 
     const touchEnd = e.changedTouches[0].clientX;
     const distance = touchStart - touchEnd;
-    const minSwipeDistance = 50;
+    const minSwipeDistance = 100;
 
     if (Math.abs(distance) < minSwipeDistance) {
       setTouchStart(null);
@@ -117,6 +162,18 @@ export const Astrophotography = () => {
     }
 
     setTouchStart(null);
+  };
+
+  const handleTopicChange = (topicId) => {
+    setSelectedTopic(topicId);
+  };
+
+  const handleThumbsWheel = (e) => {
+    const container = e.currentTarget;
+    if (container.scrollWidth > container.clientWidth) {
+      e.preventDefault();
+      container.scrollLeft += e.deltaY > 0 ? 80 : -80;
+    }
   };
 
   if (isLoading) {
@@ -138,7 +195,42 @@ export const Astrophotography = () => {
   if (!slides.length) {
     return (
       <section className="portfolio-page">
-        <div className="portfolio-shell">No images found.</div>
+        <div className="portfolio-shell">
+          <header className="portfolio-header">
+            <div className="portfolio-meta">
+              <div className="portfolio-kicker">Photography Portfolio</div>
+              <Link className="portfolio-back" to="/">
+                <ArrowLeft size={18} />
+                Back to projects
+              </Link>
+            </div>
+
+            <div className="portfolio-heading">
+              <h1>Photo Gallery</h1>
+              
+              {/* Topic Selection Buttons */}
+              <div className="flex gap-2 justify-center mt-6 flex-wrap">
+                {TOPICS.map((topic) => (
+                  <button
+                    key={topic.id}
+                    onClick={() => handleTopicChange(topic.id)}
+                    className={cn(
+                      "px-4 py-2 rounded-lg transition-all duration-200",
+                      selectedTopic === topic.id
+                        ? "bg-primary text-white"
+                        : "bg-card text-muted-foreground hover:bg-primary/10"
+                    )}
+                  >
+                    {topic.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </header>
+          <p className="text-center text-muted-foreground mt-8">
+            No images found in this category yet.
+          </p>
+        </div>
       </section>
     );
   }
@@ -150,7 +242,7 @@ export const Astrophotography = () => {
       <div className="portfolio-shell">
         <header className="portfolio-header">
           <div className="portfolio-meta">
-            <div className="portfolio-kicker">Astrophotography Portfolio</div>
+            <div className="portfolio-kicker">Photography Portfolio</div>
             <Link className="portfolio-back" to="/">
               <ArrowLeft size={18} />
               Back to projects
@@ -158,12 +250,29 @@ export const Astrophotography = () => {
           </div>
 
           <div className="portfolio-heading">
-            <h1>Solitude & Long Exposures</h1>
-            <p>
-              Astrophotography shots I've captured over the years and around the world.
-            </p>
+            <h1>{currentTopic?.title || "Photo Gallery"}</h1>
+            <p>{currentTopic?.description}</p>
+            
+            {/* Topic Selection Buttons */}
+            <div className="flex gap-2 justify-center mt-6 flex-wrap">
+              {TOPICS.map((topic) => (
+                <button
+                  key={topic.id}
+                  onClick={() => handleTopicChange(topic.id)}
+                  className={cn(
+                    "px-4 py-2 rounded-lg transition-all duration-200",
+                    selectedTopic === topic.id
+                      ? "bg-primary text-white"
+                      : "bg-card text-muted-foreground hover:bg-primary/10"
+                  )}
+                >
+                  {topic.label}
+                </button>
+              ))}
+            </div>
+            
             <p className="text-muted-foreground">
-              Use the arrows or thumbnails to explore the night sky.
+              Use the arrows or thumbnails to navigate.
             </p>
           </div>
         </header>
@@ -215,7 +324,7 @@ export const Astrophotography = () => {
             </div>
           </div>
 
-          <div className="portfolio-thumbs" role="tablist">
+          <div className="portfolio-thumbs" role="tablist" onWheel={handleThumbsWheel}>
             {slides.map((slide, index) => (
               <button
                 key={slide.id}

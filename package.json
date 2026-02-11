@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "npm run gallery:manifest && npm run gallery:watch & vite",
     "build": "npm run gallery:manifest && vite build",
-    "gallery:manifest": "node scripts/generate-gallery-manifest.mjs public/projects/astrophotography",
-    "gallery:watch": "node scripts/watch-gallery.mjs public/projects/astrophotography",
+    "gallery:manifest": "node scripts/generate-gallery-manifest.mjs public/projects/astro && node scripts/generate-gallery-manifest.mjs public/projects/landscape && node scripts/generate-gallery-manifest.mjs public/projects/animal && node scripts/generate-gallery-manifest.mjs public/projects/cars && node scripts/generate-gallery-manifest.mjs public/projects/street && node scripts/generate-gallery-manifest.mjs public/projects/aerial",
+    "gallery:watch": "node scripts/watch-gallery.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
