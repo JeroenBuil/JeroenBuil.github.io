@@ -168,6 +168,14 @@ export const PhotoPortfolio = () => {
     setSelectedTopic(topicId);
   };
 
+  const handleThumbsWheel = (e) => {
+    const container = e.currentTarget;
+    if (container.scrollWidth > container.clientWidth) {
+      e.preventDefault();
+      container.scrollLeft += e.deltaY > 0 ? 80 : -80;
+    }
+  };
+
   if (isLoading) {
     return (
       <section className="portfolio-page">
@@ -263,8 +271,8 @@ export const PhotoPortfolio = () => {
               ))}
             </div>
             
-            <p className="text-muted-foreground mt-8">
-              Use the arrows or thumbnails to explore.
+            <p className="text-muted-foreground">
+              Use the arrows or thumbnails to navigate.
             </p>
           </div>
         </header>
@@ -316,7 +324,7 @@ export const PhotoPortfolio = () => {
             </div>
           </div>
 
-          <div className="portfolio-thumbs" role="tablist">
+          <div className="portfolio-thumbs" role="tablist" onWheel={handleThumbsWheel}>
             {slides.map((slide, index) => (
               <button
                 key={slide.id}
