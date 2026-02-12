@@ -189,6 +189,18 @@
   transform: scale(0.95);
 }
 
+.cosmic-interaction {
+  transition: all 0.3s;
+}
+
+.cosmic-interaction:hover {
+  transform: scale(1.05);
+}
+
+.cosmic-interaction:active {
+  transform: scale(0.95);
+}
+
 /* ============================================
    Card Components
    ============================================ */
@@ -250,6 +262,10 @@
 .text-glow {
   position: relative;
   text-shadow: 0 0 20px var(--color-primary-glow);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
 }
 
 /* ============================================
@@ -324,7 +340,29 @@
 }
 
 /* ============================================
-   Astrophotography Page
+   Contact Messager
+   ============================================ */
+
+.messager-card-header {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin-bottom: 1.5rem;
+}
+
+.messager-input-header {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+  margin-bottom: 0.4rem;
+  text-align: left;
+}
+
+/* ============================================
+   Photography Page
    ============================================ */
 
 .portfolio-page {

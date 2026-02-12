@@ -25,8 +25,8 @@ export const About = () => {
                             AI & Biomedical Engineer<br></br> Solution Builder
                         </h3>
                         <p>
-                            <span className="font-bold"> 11+ years of experience </span> creating AI and Engineering solutions that bridge
-                            industry and research. I focus on practical, production-ready work that helps teams
+                            <span className="font-bold"> PhD in Neural Engineering</span> and <span className="font-bold"> 11+ years of experience</span> creating AI and Engineering solutions that bridge industry and research. 
+                            I focus on practical, production-ready work that helps teams
                             move faster and deliver real outcomes. 
                         </p>
                         {/* <p className="mb-2">Fields I’ve worked in:</p>
