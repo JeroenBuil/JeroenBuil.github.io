@@ -19,3 +19,23 @@ export const handleScrollToSection = (event, section_id) => {
         target.scrollIntoView({ block: "start" });
     }
 };
+
+/**
+ * Handles navigation - scrolls to sections (#section) or navigates to pages
+ * @param {Event} event - The event object
+ * @param {string} href - The href/path to navigate to
+ * @param {Function} navigate - React Router navigate function
+ */
+export const handleNavigation = (event, href, navigate) => {
+    event.preventDefault();
+    
+    // Check if it's a section (starts with #) or a page
+    if (href.startsWith('#')) {
+        // It's a section, scroll to it
+        const section_id = href.replace("#", "");
+        handleScrollToSection(event, section_id);
+    } else {
+        // It's a page, navigate using React Router
+        navigate(href);
+    }
+};

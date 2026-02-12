@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router-dom';
+import { cn, handleNavigation } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
@@ -7,20 +8,17 @@ const navItems = [
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Photography', href: '/photography' },
     { name: 'Contact', href: '#contact' },
 ]
 
 export const NavBar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();
 
     const handleNavClick = (event, href) => {
-        event.preventDefault();
-        const targetId = href.replace("#", "");
-        const target = document.getElementById(targetId);
-        if (target) {
-            target.scrollIntoView({ block: "start" });
-        }
+        handleNavigation(event, href, navigate);
         setIsMenuOpen(false);
     };
 
@@ -53,7 +51,8 @@ export const NavBar = () => {
     }, [isMenuOpen]);
 
     return (
-        <>
+        <>  
+            {/* Desktop Menu Backdrop */}
             <nav className={cn("fixed w-full z-40 transition-all duration-300",
                 isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs": "py-5"
             )}>
@@ -66,8 +65,8 @@ export const NavBar = () => {
                         {/* <div className="text-sm text-muted-foreground mt-1">WORK IN PROGRESS</div> */}
                     </div>
 
-                    {/* Desktop Menu */}
-                    <div className="hidden md:flex space-x-8">
+                    {/* Desktop Menu NavBar */}
+                    <div className="hidden md:flex space-x-6">
                         {navItems.map((item, key) => (
                             <a 
                                 key={key}
@@ -96,7 +95,7 @@ export const NavBar = () => {
                 />
             )}
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu NavBar */}
             <div className={cn("fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 md:hidden",
                 "transition-all duration-300",
                 isMenuOpen ? "opacity-100 pointer-events-auto scale-100" : "opacity-0 pointer-events-none scale-95",)
