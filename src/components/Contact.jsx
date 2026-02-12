@@ -152,8 +152,7 @@ export const Contact = () => {
         Get in <span className="text-primary">Touch</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind, or just want to chat about AI, Engineering, or anything in between. 
-          Feel free to message me or connect with me on LinkedIn. Also check out my Github!
+          Got a project in mind or want to chat about AI and Engineering? Message me or connect on LinkedIn and Github!
         </p>
 
         {/* Contact Info + Form Grid */}

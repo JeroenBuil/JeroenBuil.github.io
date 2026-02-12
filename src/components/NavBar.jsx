@@ -66,7 +66,7 @@ export const NavBar = () => {
                     </div>
 
                     {/* Desktop Menu NavBar */}
-                    <div className="hidden md:flex space-x-6">
+                    <div className="hidden lg:flex space-x-6 pr-16">
                         {navItems.map((item, key) => (
                             <a 
                                 key={key}
@@ -80,7 +80,7 @@ export const NavBar = () => {
                     </div>
 
                     <button onClick={() => setIsMenuOpen((prev) => !prev)}
-                            className="fixed md:static top-5 right-5 md:hidden p-2 text-foreground z-50 flex items-center" >
+                            className="fixed lg:static top-5 right-5 lg:hidden p-2 text-foreground z-50 flex items-center" >
                         {isMenuOpen ? <X size={30} /> : <Menu size={30}
                         aria-label={isMenuOpen ? "Close menu" : "Open menu"} />}
                     </button>
@@ -90,13 +90,13 @@ export const NavBar = () => {
             {/* Mobile Menu Backdrop */}
             {isMenuOpen && (
                 <div 
-                    className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden"
+                    className="fixed inset-0 bg-black/60 backdrop-blur-md z-40 lg:hidden"
                     onClick={handleCloseMenu}
                 />
             )}
 
             {/* Mobile Menu NavBar */}
-            <div className={cn("fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 md:hidden",
+            <div className={cn("fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 lg:hidden",
                 "transition-all duration-300",
                 isMenuOpen ? "opacity-100 pointer-events-auto scale-100" : "opacity-0 pointer-events-none scale-95",)
             }>
@@ -105,7 +105,7 @@ export const NavBar = () => {
                         <a 
                             key={key}
                             href={item.href}
-                            className="block text-foreground/80 hover-text-primary"
+                            className="block text-white hover-text-primary font-medium drop-shadow-lg"
                             onClick={(event) => handleNavClick(event, item.href)}
                         >
                             {item.name}

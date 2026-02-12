@@ -13,7 +13,7 @@ export const Home = () => {
         >   
             <div className="container max-w-4xl mx-auto text-center z-10">
                 {/* Left text + button block */}
-                <div className="flex flex-col md:flex-row gap-8 md:gap-1 items-center"> 
+                <div className="flex flex-col md:flex-row gap-8 md:gap-6 items-center"> 
                     <div className="flex-1">
                         <div className="space-y-6">
                             {/* Main Heading */}
@@ -56,7 +56,7 @@ export const Home = () => {
                         <img
                             src="/Profile_Picture_Crop.jpg"
                             alt="Profile Picture"
-                            className={cn("w-48 h-48 md:w-90 md:h-90 rounded-3xl object-cover mx-auto",
+                            className={cn("w-60 h-60 md:w-90 md:h-90 rounded-3xl object-cover mx-auto",
                                 "opacity-0 animate-fade-in-delay-1 shadow-[var(--shadow-card-hover)]",
                                 "transition-transform duration-300 transform hover:scale-105"
                             )}
