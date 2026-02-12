@@ -1,5 +1,7 @@
 # Portfolio of Jeroen Buil
-My personal portfolio showcasing my work experience, skills, and highlighting some of my personal projects
+My personal portfolio showcasing my work experience, skills, and highlighting some of my personal projects.
+
+Go to [jeroenbuil.github.io](jeroenbuil.github.io/) to visit the page.
 
 ## Current features:
 - Landing Page:
