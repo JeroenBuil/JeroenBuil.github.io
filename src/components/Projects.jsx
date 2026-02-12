@@ -22,8 +22,17 @@ const projectList =[
     image: "/projects/Astrophotography.jpg",
     icon: 'images'
   },
-  {
+  { 
     project_id:3,
+    title: "ML for ECG",
+    description: "Real time electrocardiogram (ECG) annotation with a long short term memory (LSTM) Neural Network.",
+    tags: ["PyTorch","Neural Networks", "ECG", "Medical Data"],
+    link: "https://ieeexplore.ieee.org/abstract/document/8918723",
+    image: "/projects/ML_for_ECG.png",
+    icon: "external"
+  },
+  {
+    project_id:4,
     title: "Guitar Build",
     description: "A custom-built electric guitar project, where I built an instrument from scratch, documenting the process.",
     tags: ["Woodworking", "Electronics", "Music"],
@@ -31,15 +40,7 @@ const projectList =[
     image: "/projects/GuitarBuild3.jpg",
     icon: null
   },
-  { 
-    project_id:4,
-    title: "Portfolio Website",
-    description: "A custom-built portfolio website showcasing my projects and experience.",
-    tags: ["React.js", "Tailwind CSS", "JavaScript"],
-    link: "https://github.com/JeroenBuil/JeroenBuil.github.io",
-    image: "/projects/Portfolio_Website.png",
-    icon: "github"
-  },
+
   { 
     project_id:5,
     title: "Web Scraper",
@@ -48,7 +49,16 @@ const projectList =[
     link: "https://github.com/JeroenBuil/web-scraper",
     image: "/projects/WebScraper.png",
     icon: "github"
-  }
+  },
+  { 
+    project_id:6,
+    title: "Portfolio Website",
+    description: "A custom-built portfolio website showcasing my projects and experience.",
+    tags: ["React.js", "Tailwind CSS", "JavaScript"],
+    link: "https://github.com/JeroenBuil/JeroenBuil.github.io",
+    image: "/projects/Portfolio_Website.png",
+    icon: "github"
+  },
 ]
 
 export const Projects = () => {
@@ -59,8 +69,8 @@ export const Projects = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
                   Featured <span className="text-primary">Projects</span>
               </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                  A selection of personal projects reflecting my creativity, technical skills, and passion for building things in my free time.
+              <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
+                  A selection of projects reflecting my creativity, technical skills, and passion for building things.
               </p>
 
               {/* Project Cards Grid */}
