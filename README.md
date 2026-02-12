@@ -5,19 +5,22 @@ Current features:
 - Landing Page:
   - Home
   - About
+   - inc. Downloadable CV
   - Skills
   - Projects
   - Contact
-- Downloadable CV
+- Photo Gallery:
+  - With seperate photo categories
+  - Interactive on both mobile and desktop
+  - Complete with auto-gallery watcher (auto update json when photo's are added/removed)
 - Theme toggle button
 - Animated background in dark mode (=> arguably the best mode!)
+
 
 To-Do:
 - Add message functionality
 - Link message function to email service
-- Headshot in About Me section
 - Overview work experience
-- ~~Add Astrophotography portfolio page~~ ✓ Complete with auto-gallery watcher
 - Add blog describing Guitar Project
 - Add DIY Ergonomic Keyboard Project
 
