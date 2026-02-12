@@ -1,17 +1,11 @@
 
-import { cn, handleScrollToSection } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
+import { cn, handleNavigation } from "@/lib/utils";
 import { Code, Users, Workflow } from "lucide-react";
 
 
 export const About = () => {
-
-    const handleScrollToContact = (event) => {
-        event.preventDefault();
-        const target = document.getElementById("contact");
-        if (target) {
-            target.scrollIntoView({ block: "start" });
-        }
-    };
+    const navigate = useNavigate();
 
     return (
         <section 
@@ -53,7 +47,7 @@ export const About = () => {
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                             {/* Get in touch button */}
                             <a href="#contact" className='cosmic-button'
-                               onClick={(e) => handleScrollToSection(e, "contact")}>
+                               onClick={(e) => handleNavigation(e, "#contact", navigate)}>
                                 Get In Touch
                             </a>
                             {/* Download CV button */}

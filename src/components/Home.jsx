@@ -1,8 +1,10 @@
 
-import { cn, handleScrollToSection} from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
+import { cn, handleNavigation } from "@/lib/utils";
 import { ArrowDown } from "lucide-react";
 
 export const Home = () => {
+    const navigate = useNavigate();
     
     return (
         <section 
@@ -38,12 +40,12 @@ export const Home = () => {
                             <div className="pt-4 opacity-0 animate-fade-in-delay-4 flex flex-col sm:flex-row gap-4 justify-center mx-auto max-w-xs sm:max-w-none">
                                 <a href="#projects" 
                                    className="cosmic-button"
-                                   onClick={(e) => handleScrollToSection(e, "projects")}>
+                                   onClick={(e) => handleNavigation(e, "#projects", navigate)}>
                                    View my Work
                                 </a>
                                 <a href="#contact"
                                    className="cosmic-button-inverted"
-                                   onClick={(e) => handleScrollToSection(e, "contact")}>
+                                   onClick={(e) => handleNavigation(e, "#contact", navigate)}>
                                    Contact Me
                                 </a>
                             </div>
