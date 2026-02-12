@@ -1,7 +1,7 @@
 # Portfolio of Jeroen Buil
 My personal portfolio showcasing my work experience, skills, and highlighting some of my personal projects
 
-Current features:
+## Current features:
 - Landing Page:
   - Home
   - About
@@ -16,8 +16,7 @@ Current features:
 - Theme toggle button
 - Animated background in dark mode (=> arguably the best mode!)
 
-
-To-Do:
+## To-Do:
 - Add message functionality
 - Link message function to email service
 - Overview work experience
