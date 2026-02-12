@@ -9,11 +9,9 @@ export const cn = (...inputs) => {
 
 /**
  * Scrolls to a section by ID
- * @param {Event} event - The event object
  * @param {string} section_id - The section ID to scroll to
  */
-export const handleScrollToSection = (event, section_id) => {
-    event.preventDefault();
+export const handleScrollToSection = (section_id) => {
     const target = document.getElementById(section_id);
     if (target) {
         target.scrollIntoView({ block: "start" });
@@ -22,6 +20,7 @@ export const handleScrollToSection = (event, section_id) => {
 
 /**
  * Handles navigation - scrolls to sections (#section) or navigates to pages
+ * Supports mixed routes like "/#projects" (navigate to home then scroll to section)
  * @param {Event} event - The event object
  * @param {string} href - The href/path to navigate to
  * @param {Function} navigate - React Router navigate function
@@ -29,11 +28,20 @@ export const handleScrollToSection = (event, section_id) => {
 export const handleNavigation = (event, href, navigate) => {
     event.preventDefault();
     
+    // Check for pattern "/#section" (navigate to route then scroll)
+    if (href.includes("/#")) {
+        const [route, section] = href.split("/#");
+        navigate(route || "/");
+        // Use longer timeout to ensure DOM is updated after navigation in HashRouter
+        setTimeout(() => {
+            handleScrollToSection(section);
+        }, 100);
+    }
     // Check if it's a section (starts with #) or a page
-    if (href.startsWith('#')) {
+    else if (href.startsWith("#")) {
         // It's a section, scroll to it
         const section_id = href.replace("#", "");
-        handleScrollToSection(event, section_id);
+        handleScrollToSection(section_id);
     } else {
         // It's a page, navigate using React Router
         navigate(href);

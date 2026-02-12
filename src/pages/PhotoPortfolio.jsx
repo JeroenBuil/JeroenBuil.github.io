@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, handleNavigation } from "@/lib/utils";
 
 const formatTitle = (fileName) => {
   return fileName
@@ -58,6 +58,7 @@ export const PhotoPortfolio = () => {
   const [loadError, setLoadError] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
+  const navigate = useNavigate();
 
   const currentTopic = TOPICS.find((t) => t.id === selectedTopic);
 
@@ -199,12 +200,15 @@ export const PhotoPortfolio = () => {
           <header className="portfolio-header">
             <div className="portfolio-meta">
               <div className="portfolio-kicker">Photography Portfolio</div>
-              <Link className="portfolio-back" to="/">
-                <ArrowLeft size={18} />
-                Back to projects
-              </Link>
+            <button 
+              className="portfolio-back" 
+              onClick={(e) => handleNavigation(e, "/#projects", navigate)}
+              aria-label="Back to projects"
+            >
+              <ArrowLeft size={24} />
+              Back to projects
+            </button>
             </div>
-
             <div className="portfolio-heading">
               <h1>Photo Gallery</h1>
               
@@ -243,10 +247,14 @@ export const PhotoPortfolio = () => {
         <header className="portfolio-header">
           <div className="portfolio-meta">
             <div className="portfolio-kicker">Photography Portfolio</div>
-            <Link className="portfolio-back" to="/">
-              <ArrowLeft size={18} />
+            <button 
+              className="portfolio-back" 
+              onClick={(e) => handleNavigation(e, "/#projects", navigate)}
+              aria-label="Back to projects"
+            >
+              <ArrowLeft />
               Back to projects
-            </Link>
+            </button>
           </div>
 
           <div className="portfolio-heading">
