@@ -292,7 +292,8 @@ export const Contact = () => {
               <div>
                 <label htmlFor="contact-message" className="messager-input-header">
                   Message
-                  <textarea 
+                </label>
+                <textarea 
                     id="contact-message" 
                     name="message" 
                     required 
@@ -308,7 +309,6 @@ export const Contact = () => {
                     )}
                     placeholder="Your message here..."
                   />
-                </label>
               </div>
 
               {/* Submit Button */}
