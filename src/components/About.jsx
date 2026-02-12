@@ -27,11 +27,11 @@ export const About = () => {
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6 text-muted-foreground text-left">
-                        <h3 className="text-2xl md:text-2xl font-semibold text-foreground">
-                            AI & Biomedical engineer<br></br> Solution Builder
+                        <h3 className="text-2xl md:text-2xl font-semibold text-foreground text-center">
+                            AI & Biomedical Engineer<br></br> Solution Builder
                         </h3>
                         <p>
-                            <span className="font-bold"> 11+ years of experience </span> creating AI and engineering solutions that bridge
+                            <span className="font-bold"> 11+ years of experience </span> creating AI and Engineering solutions that bridge
                             industry and research. I focus on practical, production-ready work that helps teams
                             move faster and deliver real outcomes. 
                         </p>
@@ -76,7 +76,7 @@ export const About = () => {
                                 <div className="text-left">
                                     <h4 className="font-semibold text-lg">AI / ML</h4>
                                     <p className="text-muted-foreground">
-                                        Extensive experience in building and deploying AI/ML solutions in real-world settings.
+                                        Extensive experience in building and deploying applied AI/ML solutions in real-world settings solving real-world challenges.
                                     </p>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@ export const About = () => {
                                     <h4 className="font-semibold text-lg">Bridge Builder</h4>
                                     <p className="text-muted-foreground">
                                         I bridge the gap between business and technical teams by speaking both languages fluently: 
-                                        I can translate complex technical concepts into understandable terms, and business concepts into technical requirements.
+                                        I can translate complex technical concepts into layman's terms and business strategies into code.
                                     </p>
                                 </div>
                             </div>
