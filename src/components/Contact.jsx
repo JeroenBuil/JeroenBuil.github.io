@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
-import { Mail, Linkedin, Github, MapPin } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const contactList = [
   // {
@@ -26,22 +27,70 @@ const contactList = [
 ];
 
 export const Contact = () => {
-  // const [email, setEmail] = useState('');
+  // Contact info state
   const [linkedin, setLinkedin] = useState('');
   const [github, setGithub] = useState('');
+  const [isAvailable, setIsAvailable] = useState(true);
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
   
   useEffect(() => {
-    // Construct contact info dynamically to avoid bot scraping
-    // const user = 'jeroen.buil';
-    // const domain = 'proton.me';
-    // setEmail(`${user}@${domain}`);
+    // Initialize EmailJS with your public key
+    // Get this from emailjs.com dashboard
+    emailjs.init("SC4TBaP18-nJnd9Q0");
     
+    // Construct contact info dynamically to avoid bot scraping
     const linkedinUser = 'jeroen-buil';
     setLinkedin(`https://linkedin.com/in/${linkedinUser}`);
     
     const githubUser = 'JeroenBuil';
     setGithub(`https://github.com/${githubUser}`);
   }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await emailjs.send(
+        "service_bl79vxs",      // Get from emailjs.com dashboard
+        "template_bsx2l3f",      // Get from emailjs.com dashboard
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message
+        }
+      );
+      
+      if (response.status === 200) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setSubmitStatus(null), 5000); // Clear message after 5 seconds
+      }
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const getContactInfo = (id) => {
     switch(id) {
@@ -103,54 +152,182 @@ export const Contact = () => {
         Get in <span className="text-primary">Touch</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          I’m always open to new opportunities, collaborations, or just a chat about AI, engineering, or anything in between. 
-          Feel free to reach out or connect with me on LinkedIn. Also check out my Github!
+          Have a project in mind, or just want to chat about AI, Engineering, or anything in between. 
+          Feel free to message me or connect with me on LinkedIn. Also check out my Github!
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">
+
+        {/* Contact Info + Form Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
+
+          {/* Contact Info Section */}
+          <div className="space-y-6">
+            {/* Contact Information Card */}
+            <div className="bg-card p-8 rounded-lg">
+            <h3 className="messager-card-header">
               Contact Information
             </h3>
-            {/* Contact Items */}
+            <div className="space-y-8">
             {contactList.map((contact) => {
               const { href, text, isLoaded, isExternal } = getContactInfo(contact.id);
               return (
-                <div key={contact.id} className="space-y-6 justify-center">
-                  <div className="flex items-start space-x-1">
-                    {isLoaded && href ? (
-                      <a 
-                        href={href} 
-                        {...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
-                        className="p3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
-                      >
-                        {getIcon(contact.icon)}{" "}
-                      </a>
-                    ) : (
-                      <div className="p3 rounded-full bg-primary/10">
-                        {getIcon(contact.icon)}{" "}
-                      </div>
-                    )}
-                    <div className="text-center flex-1">
-                      <h4 className="font-semibold text-primary text-sm">{contact.label}</h4>
-                      {isLoaded && (
-                        <a 
-                          {...(href && { href })}
-                          {...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
-                          className={cn(
-                            "block",
-                            href ? "text-foreground hover:underline cursor-pointer" : "text-foreground cursor-default"
-                          )}
-                        >
-                          {text}
-                        </a>
-                      )}
+                <div key={contact.id} className="flex items-center gap-2">
+                  {isLoaded && href ? (
+                    <a 
+                      href={href} 
+                      {...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
+                      className="p-3 rounded-full bg-background hover:bg-primary/50 flex-shrink-0 cosmic-interaction hover:[filter:drop-shadow(0_0_6px_rgba(255,255,255,0.6))]"
+                    >
+                      {getIcon(contact.icon)}
+                    </a>
+                  ) : (
+                    <div className="p-3 rounded-full bg-background flex-shrink-0">
+                      {getIcon(contact.icon)}
                     </div>
+                  )}
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-primary text-sm">{contact.label}</h4>
+                    {isLoaded && href && (
+                      <a 
+                        href={href}
+                        {...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
+                        className="text-foreground hover:underline cursor-pointer block"
+                      >
+                        {text}
+                      </a>
+                    )}
                   </div>
                 </div>
               );
             })}
-            
+            </div>
+            </div>
+
+            {/* Availability Status Card */}
+            <div className="bg-card p-8 rounded-lg">
+              <div className="flex items-center gap-3">
+                {/* Status Indicator */}
+                <div 
+                  className={cn(
+                    "w-5 h-5 rounded-full",
+                    isAvailable ? "bg-green-500" : "bg-red-500"
+                  )}
+                  style={{ filter: `drop-shadow(0 0 8px ${isAvailable ? 'rgb(34, 197, 94)' : 'rgb(239, 68, 68)'})` }}
+                />
+                <h4 className="font-semibold text-foreground text-sm">
+                  {isAvailable ? "Currently Available" : "Currently Unavailable"}
+                </h4>
+              </div>
+              <p className="text-muted-foreground text-sm mt-4 text-left">
+                {isAvailable ? "I'm open to new opportunities! Whether you need a full-time team member or a freelance consultant. Let's talk!" 
+                : "I'm currently unavailable to take up new projects, but feel free to leave a message. Perhaps we can make it work!"}
+              </p>
+            </div>
           </div>
+
+          {/* Contact Form */}
+          <div className={cn(
+            "bg-card p-8 rounded-lg overflow-hidden",
+            "transition-all duration-300 card-hover"
+          )}>
+            {/* Form Title */}
+            <h3 className="messager-card-header">
+              Send me a message
+            </h3>
+
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              {/* Success/Error Messages */}
+              {submitStatus === 'success' && (
+                <div className="p-4 rounded-md bg-green-500/10 border border-green-500/30 flex items-center gap-3">
+                  <CheckCircle size={20} className="text-green-500 flex-shrink-0" />
+                  <p className="text-green-700 dark:text-green-400 text-sm">Message sent successfully! I'll get back to you soon.</p>
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="p-4 rounded-md bg-red-500/10 border border-red-500/30 flex items-center gap-3">
+                  <AlertCircle size={20} className="text-red-500 flex-shrink-0" />
+                  <p className="text-red-700 dark:text-red-400 text-sm">Failed to send message. Please try again or contact me directly.</p>
+                </div>
+              )}
+
+              {/* Name Field */}
+              <div>
+                <label htmlFor="contact-name" className="messager-input-header">
+                  Name
+                </label>
+                <input type="text" id="contact-name" name="name" required 
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className={cn(
+                          "w-full px-4 py-3 rounded-md bg-background",
+                          "border-2 border-input",
+                          "focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]",
+                          "transition-all duration-300",
+                          "sm:text-sm"
+                        )}
+                        placeholder="Jane/John Doe"
+                />
+                
+              </div>
+
+              {/* Email Field */}
+              <div>
+                <label htmlFor="contact-email" className="messager-input-header">
+                  Email
+                </label>
+                <input type="email" id="contact-email" name="email" required 
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className={cn(
+                          "w-full px-4 py-3 rounded-md bg-background",
+                          "border-2 border-input",
+                          "focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]",
+                          "transition-all duration-300",
+                          "sm:text-sm"
+                        )}
+                        placeholder="j.doe@example.com"
+                />
+                
+              </div>
+
+              {/* Message Field */}
+              <div>
+                <label htmlFor="contact-message" className="messager-input-header">
+                  Message
+                  <textarea 
+                    id="contact-message" 
+                    name="message" 
+                    required 
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className={cn(
+                      "w-full px-4 py-3 rounded-md bg-background",
+                      "border-2 border-input",
+                      "focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]",
+                      "transition-all duration-300",
+                      "sm:text-sm resize-y"
+                    )}
+                    placeholder="Your message here..."
+                  />
+                </label>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={cn(
+                  "w-full cosmic-button flex items-center justify-center gap-2 group",
+                  isLoading && "opacity-70 cursor-not-allowed"
+                )}
+              >
+                {isLoading ? "Sending..." : "Send Message"}
+                <Send size={18} className="transition-all duration-300 group-hover:[filter:drop-shadow(0_0_12px_var(--color-foreground))]" />
+              </button>
+            </form>
+          </div>
+
+
         </div>
       </div>
     </section>
