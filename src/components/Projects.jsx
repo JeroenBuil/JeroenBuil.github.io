@@ -34,7 +34,7 @@ const projectList =[
   {
     project_id:4,
     title: "Guitar Build",
-    description: "I built my own electric guitar project from scratch, documenting the process.",
+    description: "I build my own custom-designed electric guitar from scratch, documenting the process.",
     tags: ["Woodworking", "Electronics", "Music"],
     link: "N/A",
     image: "/projects/GuitarBuild3.jpg",
@@ -62,7 +62,7 @@ const projectList =[
   { 
     project_id:7,
     title: "Portfolio Website",
-    description: "A custom-built portfolio website showcasing my projects and experience.",
+    description: "Custom-built website showcasing my projects and experience. Open Source template on Github!",
     tags: ["React.js", "Tailwind CSS", "JavaScript"],
     link: "https://github.com/JeroenBuil/JeroenBuil.github.io",
     image: "/projects/Portfolio_Website.png",
