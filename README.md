@@ -19,9 +19,7 @@ Go to [jeroenbuil.github.io](https://jeroenbuil.github.io/) to visit the page.
 - Animated background in dark mode (=> arguably the best mode!)
 
 ## To-Do:
-- Add message functionality
-- Link message function to email service
-- Overview work experience
+- Overview professional work experience
 - Add blog describing Guitar Project
 - Add DIY Ergonomic Keyboard Project
 
