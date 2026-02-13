@@ -34,7 +34,7 @@ const projectList =[
   {
     project_id:4,
     title: "Guitar Build",
-    description: "A custom-built electric guitar project, where I built an instrument from scratch, documenting the process.",
+    description: "I built my own electric guitar project from scratch, documenting the process.",
     tags: ["Woodworking", "Electronics", "Music"],
     link: "N/A",
     image: "/projects/GuitarBuild3.jpg",
@@ -52,6 +52,15 @@ const projectList =[
   },
   { 
     project_id:6,
+    title: "Peripheral Nervous System Control for Neuroprostheses",
+    description: "My PhD research focused on developing bidirectional control strategies for neuroprosthetic devices.",
+    tags: ["Neuroprosthetics", "Brain Machine Interfaces", "Neuroscience"],
+    link: "https://ediss.uni-goettingen.de/handle/11858/00-1735-0000-0023-3F0D-D?show=full",
+    image: "/projects/PhD_Thesis.png",
+    icon: "external"
+  },
+  { 
+    project_id:7,
     title: "Portfolio Website",
     description: "A custom-built portfolio website showcasing my projects and experience.",
     tags: ["React.js", "Tailwind CSS", "JavaScript"],
