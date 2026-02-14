@@ -3,6 +3,30 @@ My personal portfolio showcasing my work experience, skills, and highlighting so
 
 Go to [jeroenbuil.github.io](https://jeroenbuil.github.io/) to visit the page.
 
+## License
+
+### Code
+The source code of this project is released under the **GNU General Public License v3.0 (GPL‑3.0)**.
+
+- **What this means:**  
+  You may use, study, share, and modify the code freely, but any derivative work must also be distributed under the same GPL‑3.0 terms. If you distribute a modified version, you must provide the complete source code and keep the same license.
+
+- **Full license text:** see the `LICENSE.md` file in the repository.  
+- **Official GPL‑3.0 text:** https://www.gnu.org/licenses/gpl-3.0.en.html
+
+---
+
+### Images & Visual Assets
+All photographs, illustrations, icons, and any other visual assets included in this repository are **© 2026 Jeroen Buil – All Rights Reserved**.
+
+- **What this means:**  
+  The images are protected by copyright and may **not** be copied, redistributed, or used in any derivative work without explicit written permission from the copyright holder.
+
+- **License details:** see the `IMAGE_LICENSE.md` file in the repository for the exact wording and contact information for permission requests.
+
+---
+
+
 ## Current features:
 - Landing Page:
   - Home
