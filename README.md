@@ -22,6 +22,7 @@ Go to [jeroenbuil.github.io](https://jeroenbuil.github.io/) to visit the page.
 - Overview professional work experience
 - Add blog describing Guitar Project
 - Add DIY Ergonomic Keyboard Project
+- Background animation light mode
 
 # React + Vite
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
