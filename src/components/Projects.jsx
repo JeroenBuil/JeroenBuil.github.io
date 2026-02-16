@@ -6,7 +6,7 @@ const projectList =[
   {
     project_id:1,
     title: "Monkey Collar",
-    description: "Designed novel collar reducing animal stress: reduced weight and cost 10-30x, remotely releasable via Android app.",
+    description: "Designed novel collar reducing animal stress: reduced weight and cost 10-30x, remotely releasable via Android app. Open Source design.",
     tags: ['Arduino', 'Android', '3D Printing', 'Animal Wellbeing'],
     link: "https://nsojournals.onlinelibrary.wiley.com/doi/full/10.2981/wlb.00581",
     image: "/projects/MonkeyCollar.jpg",
