@@ -26,7 +26,6 @@ All photographs, illustrations, icons, and any other visual assets included in t
 
 ---
 
-
 ## Current features:
 - Landing Page:
   - Home
@@ -40,7 +39,7 @@ All photographs, illustrations, icons, and any other visual assets included in t
   - Interactive on both mobile and desktop
   - Complete with auto-gallery watcher (auto update json when photo's are added/removed)
 - Theme toggle button
-- Animated background in dark mode (=> arguably the best mode!)
+- Animated background in dark mode (=> arguably the best mode...)
 
 ## To-Do:
 - Overview professional work experience
@@ -48,23 +47,10 @@ All photographs, illustrations, icons, and any other visual assets included in t
 - Add DIY Ergonomic Keyboard Project
 - Background animation light mode
 
-# React + Vite
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
 ## Setup GitHub Pages Deployment
+These steps are required to set up the Github repo so that it builds and deploys the website when changes are pushed to the main branch.
 
 ### 1. Create the deploy.yml Workflow File
 The easiest way is to let GitHub generate it for you:
@@ -157,8 +143,24 @@ Without `.nojekyll`, GitHub Pages might silently drop or modify your production 
 4. Save
 
 ## Development Workflow
+If the Github Pages are already setup and you just want to develop the page further, follow these steps first.
 
-### Local Development
+### 1. Clone the repository:
+```bash
+git clone <repository-url>
+cd digehealth-assessment
+```
+
+### 2. Install NPM
+CachyOS:
+```bash
+sudo pacman -S nodejs npm
+```
+Windows:
+1) Download Node.js Installer the offical [Node.js website](https://nodejs.org/en/download)
+2) Install Node.js
+
+### 3. Local Development
 ```bash
 npm install  # Install dependencies (do once)
 npm run dev  # Start development server
