@@ -339,6 +339,21 @@
   animation: meteor 5s linear;
 }
 
+.neuron {
+  position: absolute;
+  border-radius: 100%;
+  background-color: hsl(0, 0%, 3%);
+  box-shadow: 0 0 10px 2px hsl(0deg 0% 100% / 0.4);
+}
+
+.axon {
+  position: absolute;
+  border-radius: 100%;
+  background: linear-gradient(to right, hsl(0, 0%, 3%), hsl(0deg 0% 3%), transparent);
+  box-shadow: 0 0 7px 5px hsl(0deg 0% 100% / 0.2);
+  animation: meteor 5s linear;
+}
+
 /* ============================================
    Contact Messager
    ============================================ */

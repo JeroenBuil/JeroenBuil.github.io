@@ -31,9 +31,9 @@ export const About = () => {
                         </p>
                         {/* <p className="mb-2">Fields I’ve worked in:</p>
                         <ul className="list-disc list-inside space-y-1">
-                            <li>Biotech</li>
                             <li>Medtech</li>
-                            <li>Finance</li>
+                            <li>Biotech</li>
+                            <li>Fintech</li>
                         </ul> */}
                         <p>
                             I strive to leave a <span className="font-bold">positive impact</span> with my work, whether it’s improving patient outcomes, enabling
