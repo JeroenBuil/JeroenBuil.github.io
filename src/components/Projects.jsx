@@ -5,6 +5,15 @@ import { Link } from "react-router-dom";
 const projectList =[
   {
     project_id:1,
+    title: "VIDEPE",
+    description: "An open source web-based multimodal data viewer for EEG and neuroimaging data (MRI, PET, SPECT) for presurgical epilepsy evaluation.",
+    tags: ['Neuroscience', 'Epilepsy', 'Open Source', 'WebApp'],
+    link: "https://videpe.github.io/videpe",
+    image: "/projects/VIDEPE.png",
+    icon: "external"
+  },
+  {
+    project_id:2,
     title: "Monkey Collar",
     description: "Designed novel collar reducing animal stress: reduced weight and cost 10-30x, remotely releasable via Android app. Open Source design.",
     tags: ['Arduino', 'Android', '3D Printing', 'Animal Wellbeing'],
@@ -13,7 +22,7 @@ const projectList =[
     icon: "external"
   },
   {
-    project_id:2,
+    project_id:3,
     title: "Photography",
     description: "Portfolio showcasing some of my favourite shots I've taken over the years.",
     tags: ["Photography","Fuji-Film X-T10", "Patience"],
@@ -23,7 +32,7 @@ const projectList =[
     icon: 'images'
   },
   { 
-    project_id:3,
+    project_id:4,
     title: "ML for ECG",
     description: "Real time electrocardiogram (ECG) annotation with a long short term memory (LSTM) Neural Network.",
     tags: ["PyTorch","Neural Networks", "ECG", "Medical Data"],
@@ -32,7 +41,7 @@ const projectList =[
     icon: "external"
   },
   {
-    project_id:4,
+    project_id:5,
     title: "Guitar Build",
     description: "I build my own custom-designed electric guitar from scratch, documenting the process.",
     tags: ["Woodworking", "Electronics", "Music"],
@@ -42,7 +51,7 @@ const projectList =[
   },
 
   { 
-    project_id:5,
+    project_id:6,
     title: "Web Scraper",
     description: "Data scraper built with Python and BeautifulSoup to extract data from public databases.",
     tags: ["Python", "BeautifulSoup", "Web Scraping"],
@@ -51,7 +60,7 @@ const projectList =[
     icon: "github"
   },
   { 
-    project_id:6,
+    project_id:7,
     title: "Peripheral Nervous System Control for Neuroprostheses",
     description: "My PhD research focused on developing bidirectional control strategies for neuroprosthetic devices.",
     tags: ["Neuroprosthetics", "Brain Machine Interfaces", "Neuroscience"],
@@ -60,7 +69,7 @@ const projectList =[
     icon: "external"
   },
   { 
-    project_id:7,
+    project_id:8,
     title: "Portfolio Website",
     description: "Custom-built website showcasing my projects and experience. Open Source template on Github!",
     tags: ["React.js", "Tailwind CSS", "JavaScript"],
